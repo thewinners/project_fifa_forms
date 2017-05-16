@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectFifaV2", "ProjectFifaV2\ProjectFifaV2.csproj", "{C23E4D80-B8AC-4A4C-BDEF-CDBE86036196}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "project_fifa", "project_fifa\project_fifa.sqlproj", "{8D3FBD58-B40A-41E8-A5DB-7CE695D9E5E9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C23E4D80-B8AC-4A4C-BDEF-CDBE86036196}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{C23E4D80-B8AC-4A4C-BDEF-CDBE86036196}.Debug|x86.ActiveCfg = Debug|x86
+		{C23E4D80-B8AC-4A4C-BDEF-CDBE86036196}.Debug|x86.Build.0 = Debug|x86
+		{C23E4D80-B8AC-4A4C-BDEF-CDBE86036196}.Release|Any CPU.ActiveCfg = Release|x86
+		{C23E4D80-B8AC-4A4C-BDEF-CDBE86036196}.Release|x86.ActiveCfg = Release|x86
+		{C23E4D80-B8AC-4A4C-BDEF-CDBE86036196}.Release|x86.Build.0 = Release|x86
+		{8D3FBD58-B40A-41E8-A5DB-7CE695D9E5E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D3FBD58-B40A-41E8-A5DB-7CE695D9E5E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D3FBD58-B40A-41E8-A5DB-7CE695D9E5E9}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{8D3FBD58-B40A-41E8-A5DB-7CE695D9E5E9}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{8D3FBD58-B40A-41E8-A5DB-7CE695D9E5E9}.Debug|x86.Build.0 = Debug|Any CPU
+		{8D3FBD58-B40A-41E8-A5DB-7CE695D9E5E9}.Debug|x86.Deploy.0 = Debug|Any CPU
+		{8D3FBD58-B40A-41E8-A5DB-7CE695D9E5E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D3FBD58-B40A-41E8-A5DB-7CE695D9E5E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D3FBD58-B40A-41E8-A5DB-7CE695D9E5E9}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{8D3FBD58-B40A-41E8-A5DB-7CE695D9E5E9}.Release|x86.ActiveCfg = Release|Any CPU
+		{8D3FBD58-B40A-41E8-A5DB-7CE695D9E5E9}.Release|x86.Build.0 = Release|Any CPU
+		{8D3FBD58-B40A-41E8-A5DB-7CE695D9E5E9}.Release|x86.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
