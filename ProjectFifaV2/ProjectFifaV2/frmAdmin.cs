@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.IO;
 
 namespace ProjectFifaV2
 {
@@ -70,12 +71,105 @@ namespace ProjectFifaV2
             if (!(txtPath.Text == null))
             {
                 dbh.OpenConnectionToDB();
+                StreamReader sr = new StreamReader(txtPath.Text);
 
-                dbh.CloseConnectionToDB();
-            }
-            else
-            {
-                MessageHandler.ShowMessage("No filename selected.");
+                if (tableSelector.Text == "")
+                {
+                    MessageHandler.ShowMessage("you have to select an table.");
+                }
+                else if (tableSelector.Text == "matches")
+                {
+                    string data = sr.ReadLine();
+
+                    while (data != null)
+                    {
+                        string[] value = data.Split(',');
+
+                        int homeTeam = Convert.ToInt32(value[1]);
+                        int awayTeam = Convert.ToInt32(value[2]);
+                        int scoreHome = Convert.ToInt32(value[3]);
+                        int scoreAway = Convert.ToInt32(value[4]);
+
+                        data = sr.ReadLine();
+
+                        using (SqlCommand cmd = new SqlCommand("INSERT INTO TblGames ( HomeTeam, AwayTeam, HomeTeamScore, AwayTeamScore) VALUES (@homeTeam, @awayTeam, @scoreHome, @scoreAway)"))
+                        {
+                            cmd.Parameters.AddWithValue("@homeTeam", homeTeam);
+                            cmd.Parameters.AddWithValue("@awayTeam", awayTeam);
+                            cmd.Parameters.AddWithValue("@scoreHome", scoreHome);
+                            cmd.Parameters.AddWithValue("@scoreAway", scoreAway);
+                            cmd.Connection = dbh.GetCon();
+                            cmd.ExecuteNonQuery();
+
+                            MessageHandler.ShowMessage("data insert has been succeeded");
+                            dbh.CloseConnectionToDB();
+                        }
+                    }
+                }
+
+
+                else if (tableSelector.Text == "players")
+                {
+                    string data = sr.ReadLine();
+
+                    while (data != null)
+                    {
+                        string[] value = data.Split(',');
+                        int id = Convert.ToInt32(value[0]);
+                        string name = value[3];
+                        string newName = name.Trim('"');
+                        string surname = value[4];
+                        string newSurname = surname.Trim('"');
+                        int goalScored = Convert.ToInt32(value[5]);
+                        int team_id = Convert.ToInt32(value[2]);
+                        data = sr.ReadLine();
+
+
+
+                        using (SqlCommand cmd = new SqlCommand("INSERT INTO TblPlayers (Name, Surname, GoalsScored, Team_id) VALUES (@name, @surname, @goalScored, @Team_id)"))
+                        {
+                            cmd.Parameters.AddWithValue("@name", newName);
+                            cmd.Parameters.AddWithValue("@surname", newSurname);
+                            cmd.Parameters.AddWithValue("@goalScored", goalScored);
+                            cmd.Parameters.AddWithValue("@Team_id", team_id);
+                            cmd.Connection = dbh.GetCon();
+                            cmd.ExecuteNonQuery();
+
+                            MessageHandler.ShowMessage("data insert has been succeeded");
+                            dbh.CloseConnectionToDB();
+                        }
+
+                    }
+                }
+
+                else if (tableSelector.Text == "teams")
+                {
+                    string data = sr.ReadLine();
+
+                    while (data != null)
+                    {
+                        string[] value = data.Split(',');
+                        string TeamName = value[2];
+                        data = sr.ReadLine();
+
+                        using (SqlCommand cmd = new SqlCommand("INSERT INTO TblTeams (TeamName) VALUES (@teamName)"))
+                        {
+
+                            cmd.Parameters.AddWithValue("@teamName", TeamName);
+                            cmd.Connection = dbh.GetCon();
+                            cmd.ExecuteNonQuery();
+
+                            MessageHandler.ShowMessage("data insert has been succeeded");
+                            dbh.CloseConnectionToDB();
+                        }
+                    }
+                }
+                else
+                {
+                    MessageHandler.ShowMessage("No filename selected.");
+                    dbh.CloseConnectionToDB();
+                }
+                    
             }
         }
         

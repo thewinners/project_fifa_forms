@@ -73,3 +73,18 @@ C:\Users\Gebruiker\Documents\GitHub\project_fifa\mysite_downloads\ProjectFifaV2\
 E:\project_fifa\mysite_downloads\ProjectFifaV2\ProjectFifaV2\bin\Debug\ProjectFifaV2.exe.config
 E:\project_fifa\mysite_downloads\ProjectFifaV2\ProjectFifaV2\obj\x86\Debug\ProjectFifaV2.exe
 E:\project_fifa\mysite_downloads\ProjectFifaV2\ProjectFifaV2\obj\x86\Debug\ProjectFifaV2.pdb
+C:\Users\Gebruiker\Documents\Visual Studio 2015\Projects\ProjectFifaV2\ProjectFifaV2\bin\Debug\ProjectFifaV2.exe.config
+C:\Users\Gebruiker\Documents\Visual Studio 2015\Projects\ProjectFifaV2\ProjectFifaV2\obj\x86\Debug\ProjectFifaV2.exe
+C:\Users\Gebruiker\Documents\Visual Studio 2015\Projects\ProjectFifaV2\ProjectFifaV2\obj\x86\Debug\ProjectFifaV2.pdb
+C:\Users\Gebruiker\Documents\Visual Studio 2015\Projects\ProjectFifaV2\ProjectFifaV2\obj\x86\Debug\ProjectFifaV2.csprojResolveAssemblyReference.cache
+C:\Users\Gebruiker\Documents\Visual Studio 2015\Projects\ProjectFifaV2\ProjectFifaV2\obj\x86\Debug\ProjectFifaV2.bet.resources
+C:\Users\Gebruiker\Documents\Visual Studio 2015\Projects\ProjectFifaV2\ProjectFifaV2\obj\x86\Debug\ProjectFifaV2.frmAdmin.resources
+C:\Users\Gebruiker\Documents\Visual Studio 2015\Projects\ProjectFifaV2\ProjectFifaV2\obj\x86\Debug\ProjectFifaV2.frmLogin.resources
+C:\Users\Gebruiker\Documents\Visual Studio 2015\Projects\ProjectFifaV2\ProjectFifaV2\obj\x86\Debug\ProjectFifaV2.frmPlayer.resources
+C:\Users\Gebruiker\Documents\Visual Studio 2015\Projects\ProjectFifaV2\ProjectFifaV2\obj\x86\Debug\ProjectFifaV2.frmRanking.resources
+C:\Users\Gebruiker\Documents\Visual Studio 2015\Projects\ProjectFifaV2\ProjectFifaV2\obj\x86\Debug\ProjectFifaV2.Properties.Resources.resources
+C:\Users\Gebruiker\Documents\Visual Studio 2015\Projects\ProjectFifaV2\ProjectFifaV2\obj\x86\Debug\ProjectFifaV2.csproj.GenerateResource.Cache
+C:\Users\Gebruiker\Documents\Visual Studio 2015\Projects\ProjectFifaV2\ProjectFifaV2\bin\Debug\db.mdf
+C:\Users\Gebruiker\Documents\Visual Studio 2015\Projects\ProjectFifaV2\ProjectFifaV2\bin\Debug\db_log.ldf
+C:\Users\Gebruiker\Documents\Visual Studio 2015\Projects\ProjectFifaV2\ProjectFifaV2\bin\Debug\ProjectFifaV2.exe
+C:\Users\Gebruiker\Documents\Visual Studio 2015\Projects\ProjectFifaV2\ProjectFifaV2\bin\Debug\ProjectFifaV2.pdb
