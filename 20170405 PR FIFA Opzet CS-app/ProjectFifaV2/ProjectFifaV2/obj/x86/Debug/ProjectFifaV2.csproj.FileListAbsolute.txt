@@ -38,3 +38,6 @@ C:\Users\Gebruiker\Documents\Visual Studio 2015\Projects\20170405 PR FIFA Opzet 
 C:\Users\Gebruiker\Documents\Visual Studio 2015\Projects\20170405 PR FIFA Opzet CS-app\ProjectFifaV2\ProjectFifaV2\obj\x86\Debug\ProjectFifaV2.frmRanking.resources
 C:\Users\Gebruiker\Documents\Visual Studio 2015\Projects\20170405 PR FIFA Opzet CS-app\ProjectFifaV2\ProjectFifaV2\obj\x86\Debug\ProjectFifaV2.Properties.Resources.resources
 C:\Users\Gebruiker\Documents\Visual Studio 2015\Projects\20170405 PR FIFA Opzet CS-app\ProjectFifaV2\ProjectFifaV2\obj\x86\Debug\ProjectFifaV2.csproj.GenerateResource.Cache
+C:\Users\Gebruiker\Documents\GitHub\project_fifa_c#\project_fifa_forms\20170405 PR FIFA Opzet CS-app\ProjectFifaV2\ProjectFifaV2\bin\Debug\ProjectFifaV2.exe.config
+C:\Users\Gebruiker\Documents\GitHub\project_fifa_c#\project_fifa_forms\20170405 PR FIFA Opzet CS-app\ProjectFifaV2\ProjectFifaV2\obj\x86\Debug\ProjectFifaV2.exe
+C:\Users\Gebruiker\Documents\GitHub\project_fifa_c#\project_fifa_forms\20170405 PR FIFA Opzet CS-app\ProjectFifaV2\ProjectFifaV2\obj\x86\Debug\ProjectFifaV2.pdb
