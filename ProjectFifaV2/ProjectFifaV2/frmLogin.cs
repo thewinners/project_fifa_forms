@@ -132,8 +132,8 @@ namespace ProjectFifaV2
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            SoundPlayer simpleSound = new SoundPlayer(@"C:\Users\Gebruiker\Documents\GitHub\project_fifa\mysite_downloads\ProjectFifaV2\Sounds\button_click.wav");
-            simpleSound.Play();
+            //SoundPlayer simpleSound = new SoundPlayer(@"C:\Users\Gebruiker\Documents\GitHub\project_fifa\mysite_downloads\ProjectFifaV2\Sounds\button_click.wav");
+            //simpleSound.Play();
             dbh.TestConnection();
             dbh.OpenConnectionToDB();
 

@@ -42,7 +42,7 @@
             // 
             // btnLoadData
             // 
-            this.btnLoadData.Location = new System.Drawing.Point(884, 41);
+            this.btnLoadData.Location = new System.Drawing.Point(1009, 39);
             this.btnLoadData.Margin = new System.Windows.Forms.Padding(4);
             this.btnLoadData.Name = "btnLoadData";
             this.btnLoadData.Size = new System.Drawing.Size(108, 25);
@@ -119,7 +119,7 @@
             "matches",
             "players",
             "teams"});
-            this.tableSelector.Location = new System.Drawing.Point(1000, 41);
+            this.tableSelector.Location = new System.Drawing.Point(881, 39);
             this.tableSelector.Name = "tableSelector";
             this.tableSelector.Size = new System.Drawing.Size(121, 24);
             this.tableSelector.TabIndex = 8;

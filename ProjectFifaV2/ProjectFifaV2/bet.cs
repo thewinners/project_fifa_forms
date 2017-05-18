@@ -26,7 +26,10 @@ namespace ProjectFifaV2
 
         private void bet_Load(object sender, EventArgs e)
         {
-
+            int numberOfGoalsHome = Convert.ToInt32(this.numberOfGoalsHome.Text);
+            int numberOfGoalsAway = Convert.ToInt32(this.numberOfGoalsAway.Text);
+            int numberOfPoints = Convert.ToInt32(betAmount.Value);
+            
         }
 
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)

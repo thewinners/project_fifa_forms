@@ -153,32 +153,28 @@ namespace ProjectFifaV2
                         string TeamName = value[2];
                         data = sr.ReadLine();
 
-                        using (SqlCommand cmd = new SqlCommand("SELECT Team_id FROM TblTeams"))
+                        DataTable teamId = dbh.FillDT("SELECT Team_id FROM TblTeams");
+                        
+                        DataRow rowTeamId = teamId.Rows[0];
+                        int checkTeamId = Convert.ToInt32(rowTeamId[0]);
+                        
+                        if ( checkTeamId == Teamid)
                         {
-                            SqlDataReader dr = cmd.ExecuteReader();
-                            if (dr.HasRows)
+                            MessageHandler.ShowMessage("there is already an team with that team id");
+                        }
+                        else
+                        {
+                            using (SqlCommand cmd = new SqlCommand("INSERT INTO  TblTeams (Team_id, TeamName) VALUES (@Teamid, @teamname)"))
                             {
-                                while (dr.Read())
-                                {
-                                    string checkId = dr.ToString();
-                                    int checkTeamId = Convert.ToInt32(checkId);
-                                    if (checkTeamId == Teamid)
-                                    {
-                                        MessageHandler.ShowMessage("there is already an team with that team id");
-                                    }
-                                    else if(checkTeamId != Teamid)
-                                    {
-                                        cmd.Parameters.AddWithValue("@Teamid", Teamid);
-                                        cmd.Parameters.AddWithValue("@teamName", TeamName);
-                                        cmd.Connection = dbh.GetCon();
-                                        cmd.ExecuteNonQuery();
-
-                                        MessageHandler.ShowMessage("data insert has been succeeded");
-                                        dbh.CloseConnectionToDB();
-                                        
-                                    }
-                                }
+                                dbh.OpenConnectionToDB();
+                                cmd.Parameters.AddWithValue("@Teamid", Teamid);
+                                cmd.Parameters.AddWithValue("@teamName", TeamName);
+                                cmd.Connection = dbh.GetCon();
+                                cmd.ExecuteNonQuery();
                             }
+                            MessageHandler.ShowMessage("data insert has been succeeded");
+                            dbh.CloseConnectionToDB();
+
                         }
 
                         
