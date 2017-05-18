@@ -44,34 +44,37 @@
             // 
             // btnEditPrediction
             // 
+            this.btnEditPrediction.BackColor = System.Drawing.Color.White;
             this.btnEditPrediction.Location = new System.Drawing.Point(485, 87);
             this.btnEditPrediction.Margin = new System.Windows.Forms.Padding(4);
             this.btnEditPrediction.Name = "btnEditPrediction";
             this.btnEditPrediction.Size = new System.Drawing.Size(141, 37);
             this.btnEditPrediction.TabIndex = 1;
             this.btnEditPrediction.Text = "Edit Prediction";
-            this.btnEditPrediction.UseVisualStyleBackColor = true;
+            this.btnEditPrediction.UseVisualStyleBackColor = false;
             // 
             // btnClearPrediction
             // 
+            this.btnClearPrediction.BackColor = System.Drawing.Color.White;
             this.btnClearPrediction.Location = new System.Drawing.Point(485, 146);
             this.btnClearPrediction.Margin = new System.Windows.Forms.Padding(4);
             this.btnClearPrediction.Name = "btnClearPrediction";
             this.btnClearPrediction.Size = new System.Drawing.Size(141, 37);
             this.btnClearPrediction.TabIndex = 2;
             this.btnClearPrediction.Text = "Clear Prediction";
-            this.btnClearPrediction.UseVisualStyleBackColor = true;
+            this.btnClearPrediction.UseVisualStyleBackColor = false;
             this.btnClearPrediction.Click += new System.EventHandler(this.btnClearPrediction_Click);
             // 
             // btnLogOut
             // 
+            this.btnLogOut.BackColor = System.Drawing.Color.White;
             this.btnLogOut.Location = new System.Drawing.Point(485, 213);
             this.btnLogOut.Margin = new System.Windows.Forms.Padding(4);
             this.btnLogOut.Name = "btnLogOut";
             this.btnLogOut.Size = new System.Drawing.Size(141, 37);
             this.btnLogOut.TabIndex = 3;
             this.btnLogOut.Text = "Log Out";
-            this.btnLogOut.UseVisualStyleBackColor = true;
+            this.btnLogOut.UseVisualStyleBackColor = false;
             this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
             // 
             // lblResultsOverview
@@ -86,22 +89,25 @@
             // 
             // btnShowRanking
             // 
+            this.btnShowRanking.BackColor = System.Drawing.Color.White;
             this.btnShowRanking.Location = new System.Drawing.Point(485, 26);
             this.btnShowRanking.Margin = new System.Windows.Forms.Padding(4);
             this.btnShowRanking.Name = "btnShowRanking";
             this.btnShowRanking.Size = new System.Drawing.Size(141, 37);
             this.btnShowRanking.TabIndex = 6;
             this.btnShowRanking.Text = "Show Ranking";
-            this.btnShowRanking.UseVisualStyleBackColor = true;
+            this.btnShowRanking.UseVisualStyleBackColor = false;
             this.btnShowRanking.Click += new System.EventHandler(this.btnShowRanking_Click);
             // 
             // lvOverview
             // 
+            this.lvOverview.BackColor = System.Drawing.Color.Black;
             this.lvOverview.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.clmHomeTeam,
             this.clmHomeTeamScore,
             this.clmAwayTeamScore,
             this.clmAwayTeam});
+            this.lvOverview.ForeColor = System.Drawing.Color.White;
             this.lvOverview.Location = new System.Drawing.Point(635, 44);
             this.lvOverview.Margin = new System.Windows.Forms.Padding(4);
             this.lvOverview.Name = "lvOverview";
@@ -134,6 +140,7 @@
             // 
             // pnlPredCard
             // 
+            this.pnlPredCard.BackColor = System.Drawing.Color.Black;
             this.pnlPredCard.Location = new System.Drawing.Point(16, 44);
             this.pnlPredCard.Margin = new System.Windows.Forms.Padding(4);
             this.pnlPredCard.Name = "pnlPredCard";
@@ -144,6 +151,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.DarkGreen;
             this.ClientSize = new System.Drawing.Size(1344, 898);
             this.Controls.Add(this.pnlPredCard);
             this.Controls.Add(this.lvOverview);

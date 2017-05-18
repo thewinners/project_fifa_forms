@@ -17,6 +17,7 @@ namespace ProjectFifaV2
         private Form frmAdmin;
         private Form frmPlayer;
         private Form frmRanking;
+        private Form bet;
 
         public frmLogin()
         {
@@ -24,12 +25,13 @@ namespace ProjectFifaV2
             dbh = new DatabaseHandler();
             frmAdmin = new frmAdmin();
             frmRanking = new frmRanking();
+            bet = new bet();
             //frmPlayer = new frmPlayer(frmRanking);
         }
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
-            SoundPlayer simpleSound = new SoundPlayer(@"C:\Users\Gebruiker\Documents\GitHub\project_fifa\mysite_downloads\ProjectFifaV2\Sounds\button_click.wav");
+            SoundPlayer simpleSound = new SoundPlayer(@"C:\Users\Gebruiker\Documents\GitHub\project_fifa_c#\project_fifa_forms\ProjectFifaV2\Sounds\button_click.wav");
             simpleSound.Play();
             if (txtUsername.Text == "" || txtPassword.Text == "")
             {
@@ -110,7 +112,7 @@ namespace ProjectFifaV2
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            SoundPlayer simpleSound = new SoundPlayer(@"C:\Users\Gebruiker\Documents\GitHub\project_fifa\mysite_downloads\ProjectFifaV2\Sounds\button_click.wav");
+            SoundPlayer simpleSound = new SoundPlayer(@"C:\Users\Gebruiker\Documents\GitHub\project_fifa_c#\project_fifa_forms\ProjectFifaV2\Sounds\button_back.wav");
             simpleSound.Play();
             DialogResult result = MessageBox.Show("Are you sure you want to quit?", "Quit", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
             if (result.Equals(DialogResult.OK))
@@ -125,14 +127,14 @@ namespace ProjectFifaV2
 
         private void btnShowRanking_Click(object sender, EventArgs e)
         {
-            SoundPlayer simpleSound = new SoundPlayer(@"C:\Users\Gebruiker\Documents\GitHub\project_fifa\mysite_downloads\ProjectFifaV2\Sounds\button_click.wav");
+            SoundPlayer simpleSound = new SoundPlayer(@"C:\Users\Gebruiker\Documents\GitHub\project_fifa_c#\project_fifa_forms\ProjectFifaV2\Sounds\button_click.wav");
             simpleSound.Play();
             frmRanking.Show(); 
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            SoundPlayer simpleSound = new SoundPlayer(@"C:\Users\Gebruiker\Documents\GitHub\project_fifa\mysite_downloads\ProjectFifaV2\Sounds\button_click.wav");
+            SoundPlayer simpleSound = new SoundPlayer(@"C:\Users\Gebruiker\Documents\GitHub\project_fifa_c#\project_fifa_forms\ProjectFifaV2\Sounds\button_click.wav");
             simpleSound.Play();
             dbh.TestConnection();
             dbh.OpenConnectionToDB();
@@ -167,7 +169,7 @@ namespace ProjectFifaV2
                 }
                 else
                 {
-                    Application.Run(new bet());
+                    bet.Show();
                     
                     //frmPlayer.Show();
                 }

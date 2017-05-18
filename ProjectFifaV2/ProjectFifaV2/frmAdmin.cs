@@ -28,6 +28,7 @@ namespace ProjectFifaV2
 
         private void btnAdminLogOut_Click(object sender, EventArgs e)
         {
+
             txtQuery.Text = null;
             txtPath = null;
             dgvAdminData.DataSource = null;

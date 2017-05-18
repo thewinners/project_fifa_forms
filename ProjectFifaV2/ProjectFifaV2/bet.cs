@@ -19,7 +19,7 @@ namespace ProjectFifaV2
 
         private void button1_Click(object sender, EventArgs e)
         {
-            SoundPlayer simpleSound = new SoundPlayer(@"C:\Users\Gebruiker\Documents\GitHub\project_fifa\mysite_downloads\ProjectFifaV2\Sounds\Chaching.wav");
+            SoundPlayer simpleSound = new SoundPlayer(@"C:\Users\Gebruiker\Documents\GitHub\project_fifa_c#\project_fifa_forms\ProjectFifaV2\Sounds\Chaching.wav");
             simpleSound.Play();
 
         }
