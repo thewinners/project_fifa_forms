@@ -17,6 +17,7 @@ namespace ProjectFifaV2
         private Form frmAdmin;
         private Form frmPlayer;
         private Form frmRanking;
+        private Form frmBet;
 
         public frmLogin()
         {
@@ -24,6 +25,7 @@ namespace ProjectFifaV2
             dbh = new DatabaseHandler();
             frmAdmin = new frmAdmin();
             frmRanking = new frmRanking();
+            frmBet = new bet();
             //frmPlayer = new frmPlayer(frmRanking);
         }
 
@@ -146,6 +148,7 @@ namespace ProjectFifaV2
 
             using (SqlCommand cmd = new SqlCommand("SELECT COUNT(*) FROM [tblUsers] WHERE Username = @Username AND Password = @Password", dbh.GetCon()))
             {
+
                 cmd.Parameters.AddWithValue("Username", username);
                 cmd.Parameters.AddWithValue("Password", password);
                 exist = (int)cmd.ExecuteScalar() > 0;
@@ -167,9 +170,7 @@ namespace ProjectFifaV2
                 }
                 else
                 {
-                    Application.Run(new bet());
-                    
-                    //frmPlayer.Show();
+                    frmBet.Show();
                 }
             }
             else

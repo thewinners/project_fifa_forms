@@ -140,6 +140,8 @@ namespace ProjectFifaV2
                         }
 
                     }
+                    MessageHandler.ShowMessage("data insert has been succeeded");
+                    dbh.CloseConnectionToDB();
                 }
 
                 else if (tableSelector.Text == "teams")
@@ -150,35 +152,40 @@ namespace ProjectFifaV2
                     {
                         string[] value = data.Split(',');
                         int Teamid = Convert.ToInt32(value[0]);
+                        int temp = Convert.ToInt32(value[1]);
                         string TeamName = value[2];
                         data = sr.ReadLine();
 
                         DataTable teamId = dbh.FillDT("SELECT Team_id FROM TblTeams");
-                        
-                        DataRow rowTeamId = teamId.Rows[0];
-                        int checkTeamId = Convert.ToInt32(rowTeamId[0]);
-                        
-                        if ( checkTeamId == Teamid)
+                       
+                        for (int i = 0; i < teamId.Rows.Count; i++)
                         {
-                            MessageHandler.ShowMessage("there is already an team with that team id");
-                        }
-                        else
-                        {
-                            using (SqlCommand cmd = new SqlCommand("INSERT INTO  TblTeams (Team_id, TeamName) VALUES (@Teamid, @teamname)"))
-                            {
-                                dbh.OpenConnectionToDB();
-                                cmd.Parameters.AddWithValue("@Teamid", Teamid);
-                                cmd.Parameters.AddWithValue("@teamName", TeamName);
-                                cmd.Connection = dbh.GetCon();
-                                cmd.ExecuteNonQuery();
-                            }
-                            MessageHandler.ShowMessage("data insert has been succeeded");
-                            dbh.CloseConnectionToDB();
+                            DataRow rowTeamId = teamId.Rows[0];
+                            int checkTeamId = Convert.ToInt32(rowTeamId[0]);
 
+                            if (checkTeamId == Teamid)
+                            {
+                                MessageHandler.ShowMessage("there is already an team with that team id");
+                                Hide();
+                            }
+                            else if (checkTeamId != Teamid)
+                            {
+                                using (SqlCommand cmd = new SqlCommand("INSERT INTO  TblTeams (Team_id, TeamName) VALUES (@Teamid, @teamname)"))
+                                {
+                                    dbh.OpenConnectionToDB();
+                                    cmd.Parameters.AddWithValue("@Teamid", Teamid);
+                                    cmd.Parameters.AddWithValue("@teamName", TeamName);
+                                    cmd.Connection = dbh.GetCon();
+                                    cmd.ExecuteNonQuery();
+                                }
+
+                            }
                         }
 
                         
                     }
+                    MessageHandler.ShowMessage("data insert has been succeeded");
+                    dbh.CloseConnectionToDB();
                 }
                 else
                 {
