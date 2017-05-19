@@ -12,9 +12,11 @@ namespace ProjectFifaV2
 {
     public partial class bet : Form
     {
+        private Form frmRanking;
         public bet()
         {
             InitializeComponent();
+            frmRanking = new frmRanking();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -41,6 +43,21 @@ namespace ProjectFifaV2
 
         private void label3_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            SoundPlayer simpleSound = new SoundPlayer(@"C:\Users\Gebruiker\Documents\GitHub\project_fifa_c#\project_fifa_forms\ProjectFifaV2\Sounds\button_click.wav");
+            simpleSound.Play();
+            frmRanking.Show();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            SoundPlayer simpleSound = new SoundPlayer(@"C:\Users\Gebruiker\Documents\GitHub\project_fifa_c#\project_fifa_forms\ProjectFifaV2\Sounds\button_back.wav");
+            simpleSound.Play();
+            Hide();
 
         }
     }

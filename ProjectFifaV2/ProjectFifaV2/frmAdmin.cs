@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.IO;
+using System.Media;
 
 namespace ProjectFifaV2
 {
@@ -28,7 +29,8 @@ namespace ProjectFifaV2
 
         private void btnAdminLogOut_Click(object sender, EventArgs e)
         {
-
+            SoundPlayer simpleSound = new SoundPlayer(@"C:\Users\Gebruiker\Documents\GitHub\project_fifa_c#\project_fifa_forms\ProjectFifaV2\Sounds\button_back.wav");
+            simpleSound.Play();
             txtQuery.Text = null;
             txtPath = null;
             dgvAdminData.DataSource = null;
@@ -37,6 +39,8 @@ namespace ProjectFifaV2
 
         private void btnExecute_Click(object sender, EventArgs e)
         {
+            SoundPlayer simpleSound = new SoundPlayer(@"C:\Users\Gebruiker\Documents\GitHub\project_fifa_c#\project_fifa_forms\ProjectFifaV2\Sounds\button_click.wav");
+            simpleSound.Play();
             if (txtQuery.TextLength > 0)
             {
                 ExecuteSQL(txtQuery.Text);
@@ -53,6 +57,8 @@ namespace ProjectFifaV2
 
         private void btnSelectFile_Click(object sender, EventArgs e)
         {
+            SoundPlayer simpleSound = new SoundPlayer(@"C:\Users\Gebruiker\Documents\GitHub\project_fifa_c#\project_fifa_forms\ProjectFifaV2\Sounds\button_click.wav");
+            simpleSound.Play();
             txtPath.Text = null;
             
             string path = GetFilePath();
@@ -69,6 +75,8 @@ namespace ProjectFifaV2
 
         private void btnLoadData_Click(object sender, EventArgs e)
         {
+            SoundPlayer simpleSound = new SoundPlayer(@"C:\Users\Gebruiker\Documents\GitHub\project_fifa_c#\project_fifa_forms\ProjectFifaV2\Sounds\button_click.wav");
+            simpleSound.Play();
             if (!(txtPath.Text == null))
             {
                 dbh.OpenConnectionToDB();

@@ -52,6 +52,7 @@
             this.btnEditPrediction.TabIndex = 1;
             this.btnEditPrediction.Text = "Edit Prediction";
             this.btnEditPrediction.UseVisualStyleBackColor = false;
+            this.btnEditPrediction.Click += new System.EventHandler(this.btnEditPrediction_Click);
             // 
             // btnClearPrediction
             // 
@@ -141,6 +142,7 @@
             // pnlPredCard
             // 
             this.pnlPredCard.BackColor = System.Drawing.Color.Black;
+            this.pnlPredCard.ForeColor = System.Drawing.Color.White;
             this.pnlPredCard.Location = new System.Drawing.Point(16, 44);
             this.pnlPredCard.Margin = new System.Windows.Forms.Padding(4);
             this.pnlPredCard.Name = "pnlPredCard";

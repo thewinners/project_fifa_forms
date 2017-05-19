@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Media;
 
 namespace ProjectFifaV2
 {
@@ -35,16 +36,22 @@ namespace ProjectFifaV2
 
         private void btnLogOut_Click(object sender, EventArgs e)
         {
+            SoundPlayer simpleSound = new SoundPlayer(@"C:\Users\Gebruiker\Documents\GitHub\project_fifa_c#\project_fifa_forms\ProjectFifaV2\Sounds\button_back.wav");
+            simpleSound.Play();
             Hide();
         }
 
         private void btnShowRanking_Click(object sender, EventArgs e)
         {
+            SoundPlayer simpleSound = new SoundPlayer(@"C:\Users\Gebruiker\Documents\GitHub\project_fifa_c#\project_fifa_forms\ProjectFifaV2\Sounds\button_click.wav");
+            simpleSound.Play();
             frmRanking.Show();
         }
 
         private void btnClearPrediction_Click(object sender, EventArgs e)
         {
+            SoundPlayer simpleSound = new SoundPlayer(@"C:\Users\Gebruiker\Documents\GitHub\project_fifa_c#\project_fifa_forms\ProjectFifaV2\Sounds\button_click.wav");
+            simpleSound.Play();
             DialogResult result = MessageBox.Show("Are you sure you want to clear your prediction?", "Clear Predictions", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
             if (result.Equals(DialogResult.OK))
             {
@@ -147,6 +154,12 @@ namespace ProjectFifaV2
         internal void GetUsername(string un)
         {
             userName = un;
+        }
+
+        private void btnEditPrediction_Click(object sender, EventArgs e)
+        {
+            SoundPlayer simpleSound = new SoundPlayer(@"C:\Users\Gebruiker\Documents\GitHub\project_fifa_c#\project_fifa_forms\ProjectFifaV2\Sounds\button_click.wav");
+            simpleSound.Play();
         }
     }
 }

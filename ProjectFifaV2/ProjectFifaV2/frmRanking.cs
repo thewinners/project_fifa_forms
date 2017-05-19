@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Media;
 
 namespace ProjectFifaV2
 {
@@ -24,6 +25,8 @@ namespace ProjectFifaV2
 
         private void btnRankingBack_Click(object sender, EventArgs e)
         {
+            SoundPlayer simpleSound = new SoundPlayer(@"C:\Users\Gebruiker\Documents\GitHub\project_fifa_c#\project_fifa_forms\ProjectFifaV2\Sounds\button_back.wav");
+            simpleSound.Play();
             Hide();
         }
 

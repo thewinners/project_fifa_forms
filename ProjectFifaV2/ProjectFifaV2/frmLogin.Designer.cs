@@ -37,6 +37,7 @@
             this.btnExit = new System.Windows.Forms.Button();
             this.btnRegister = new System.Windows.Forms.Button();
             this.btnShowRanking = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtUsername
@@ -81,7 +82,7 @@
             // btnLogin
             // 
             this.btnLogin.BackColor = System.Drawing.Color.White;
-            this.btnLogin.Location = new System.Drawing.Point(68, 154);
+            this.btnLogin.Location = new System.Drawing.Point(353, 158);
             this.btnLogin.Margin = new System.Windows.Forms.Padding(4);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(119, 32);
@@ -93,7 +94,7 @@
             // btnExit
             // 
             this.btnExit.BackColor = System.Drawing.Color.White;
-            this.btnExit.Location = new System.Drawing.Point(277, 208);
+            this.btnExit.Location = new System.Drawing.Point(209, 208);
             this.btnExit.Margin = new System.Windows.Forms.Padding(4);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(119, 32);
@@ -105,7 +106,7 @@
             // btnRegister
             // 
             this.btnRegister.BackColor = System.Drawing.Color.White;
-            this.btnRegister.Location = new System.Drawing.Point(68, 208);
+            this.btnRegister.Location = new System.Drawing.Point(353, 208);
             this.btnRegister.Margin = new System.Windows.Forms.Padding(4);
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(119, 32);
@@ -117,7 +118,7 @@
             // btnShowRanking
             // 
             this.btnShowRanking.BackColor = System.Drawing.Color.White;
-            this.btnShowRanking.Location = new System.Drawing.Point(277, 154);
+            this.btnShowRanking.Location = new System.Drawing.Point(67, 157);
             this.btnShowRanking.Margin = new System.Windows.Forms.Padding(4);
             this.btnShowRanking.Name = "btnShowRanking";
             this.btnShowRanking.Size = new System.Drawing.Size(119, 32);
@@ -126,12 +127,23 @@
             this.btnShowRanking.UseVisualStyleBackColor = false;
             this.btnShowRanking.Click += new System.EventHandler(this.btnShowRanking_Click);
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(67, 208);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(120, 32);
+            this.button2.TabIndex = 9;
+            this.button2.Text = "Show Player";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkGreen;
             this.ClientSize = new System.Drawing.Size(485, 273);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.btnShowRanking);
             this.Controls.Add(this.btnRegister);
             this.Controls.Add(this.btnExit);
@@ -163,6 +175,7 @@
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Button btnRegister;
         private System.Windows.Forms.Button btnShowRanking;
+        private System.Windows.Forms.Button button2;
     }
 }
 
