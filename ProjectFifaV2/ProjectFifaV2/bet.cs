@@ -21,8 +21,18 @@ namespace ProjectFifaV2
         {
             InitializeComponent();
             dbh = new DatabaseHandler();
+            
         }
-
+        
+            //using (SqlCommand cmd = new SqlCommand("SELECT Id FROM TblUsers WHERE Username = @username", dbh.GetCon()))
+            //{
+            //    cmd.Parameters.AddWithValue("@username", userName);
+            //    int userId = (int)cmd.ExecuteScalar();
+            //    return userId;
+            //}
+            
+        
+        
         private void button1_Click(object sender, EventArgs e)
         {
             //SoundPlayer simpleSound = new SoundPlayer(@"C:\Users\Gebruiker\Documents\GitHub\project_fifa\mysite_downloads\ProjectFifaV2\Sounds\Chaching.wav");
@@ -33,27 +43,28 @@ namespace ProjectFifaV2
             dbh.TestConnection();
             dbh.OpenConnectionToDB();
 
-            DataTable table = dbh.FillDT("SELECT Id FROM TblUsers WHERE Username = @userName");
-            DataTable tableGame = dbh.FillDT("SELECT Game_id FROM TblGames");
+            DataTable table = dbh.FillDT("SELECT Username FROM TblUsers");
             for (int i = 0; i < table.Rows.Count; i++)
             {
-                DataRow dataRow = table.Rows[0];
-                DataRow dataRowGames = tableGame.Rows[0];
-                int id = Convert.ToInt32(dataRow["Id"]);
-                int Game_id = Convert.ToInt32(dataRowGames["Game_id"]);
-
-
-                dbh.CloseConnectionToDB();
+                DataRow dataRow = table.Rows[i];
+                string userName = dataRow["Username"].ToString();
+            }
+            
+                int Game_id = Convert.ToInt32(game_id.Text);
                 using (SqlCommand cmd = new SqlCommand("INSERT INTO TblPredictions ( User_id, Game_id, PredictedHomeScore, PredictedAwayScore) VALUES (@user_id, @Game_id, @PredictedHomeScore, @PredictedAwayScore)"))
                 {
-                    cmd.Parameters.AddWithValue("@user_id", id);
+                    
+                    cmd.Parameters.AddWithValue("@user_id", Id);
                     cmd.Parameters.AddWithValue("@Game_id", Game_id);
                     cmd.Parameters.AddWithValue("PredictedHomeScore", numberOfGoalsHome);
                     cmd.Parameters.AddWithValue("PredictedAwayScore", numberOfGoalsAway);
-
+                    cmd.Connection = dbh.GetCon();
+                    cmd.ExecuteNonQuery();
                 }
-            }
+            dbh.CloseConnectionToDB();
         }
+            
+        
         
         private void bet_Load(object sender, EventArgs e)
         {
