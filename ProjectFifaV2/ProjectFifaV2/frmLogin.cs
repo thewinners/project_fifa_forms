@@ -189,6 +189,8 @@ namespace ProjectFifaV2
 
         private void button2_Click(object sender, EventArgs e)
         {
+            SoundPlayer simpleSound = new SoundPlayer(@"C:\Users\Gebruiker\Documents\GitHub\project_fifa_c#\project_fifa_forms\ProjectFifaV2\Sounds\button_click.wav");
+            simpleSound.Play();
             frmPlayer.Show();
         }
     }

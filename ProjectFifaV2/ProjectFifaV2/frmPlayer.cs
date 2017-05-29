@@ -21,7 +21,7 @@ namespace ProjectFifaV2
         public frmPlayer(Form frm, string un)
         {
             this.ControlBox = false;
-            frmRanking = frm;
+            frmRanking = new frmRanking();
             dbh = new DatabaseHandler();
 
             InitializeComponent();
