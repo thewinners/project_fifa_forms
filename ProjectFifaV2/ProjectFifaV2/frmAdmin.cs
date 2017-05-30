@@ -29,8 +29,6 @@ namespace ProjectFifaV2
 
         private void btnAdminLogOut_Click(object sender, EventArgs e)
         {
-            SoundPlayer simpleSound = new SoundPlayer(@"C:\Users\Gebruiker\Documents\GitHub\project_fifa_c#\project_fifa_forms\ProjectFifaV2\Sounds\button_back.wav");
-            simpleSound.Play();
             txtQuery.Text = null;
             txtPath = null;
             dgvAdminData.DataSource = null;
@@ -39,8 +37,6 @@ namespace ProjectFifaV2
 
         private void btnExecute_Click(object sender, EventArgs e)
         {
-            SoundPlayer simpleSound = new SoundPlayer(@"C:\Users\Gebruiker\Documents\GitHub\project_fifa_c#\project_fifa_forms\ProjectFifaV2\Sounds\button_click.wav");
-            simpleSound.Play();
             if (txtQuery.TextLength > 0)
             {
                 ExecuteSQL(txtQuery.Text);
@@ -57,8 +53,6 @@ namespace ProjectFifaV2
 
         private void btnSelectFile_Click(object sender, EventArgs e)
         {
-            SoundPlayer simpleSound = new SoundPlayer(@"C:\Users\Gebruiker\Documents\GitHub\project_fifa_c#\project_fifa_forms\ProjectFifaV2\Sounds\button_click.wav");
-            simpleSound.Play();
             txtPath.Text = null;
             
             string path = GetFilePath();
@@ -75,8 +69,6 @@ namespace ProjectFifaV2
 
         private void btnLoadData_Click(object sender, EventArgs e)
         {
-            SoundPlayer simpleSound = new SoundPlayer(@"C:\Users\Gebruiker\Documents\GitHub\project_fifa_c#\project_fifa_forms\ProjectFifaV2\Sounds\button_click.wav");
-            simpleSound.Play();
             if (!(txtPath.Text == null))
             {
                 dbh.OpenConnectionToDB();
@@ -149,6 +141,8 @@ namespace ProjectFifaV2
                         }
 
                     }
+                    MessageHandler.ShowMessage("data insert has been succeeded");
+                    dbh.CloseConnectionToDB();
                 }
 
                 else if (tableSelector.Text == "teams")
@@ -159,39 +153,40 @@ namespace ProjectFifaV2
                     {
                         string[] value = data.Split(',');
                         int Teamid = Convert.ToInt32(value[0]);
+                        int temp = Convert.ToInt32(value[1]);
                         string TeamName = value[2];
                         data = sr.ReadLine();
 
-                        using (SqlCommand cmd = new SqlCommand("SELECT Team_id FROM TblTeams"))
+                        DataTable teamId = dbh.FillDT("SELECT Team_id FROM TblTeams");
+                       
+                        for (int i = 0; i < teamId.Rows.Count; i++)
                         {
-                            SqlDataReader dr = cmd.ExecuteReader();
-                            if (dr.HasRows)
-                            {
-                                while (dr.Read())
-                                {
-                                    string checkId = dr.ToString();
-                                    int checkTeamId = Convert.ToInt32(checkId);
-                                    if (checkTeamId == Teamid)
-                                    {
-                                        MessageHandler.ShowMessage("there is already an team with that team id");
-                                    }
-                                    else if(checkTeamId != Teamid)
-                                    {
-                                        cmd.Parameters.AddWithValue("@Teamid", Teamid);
-                                        cmd.Parameters.AddWithValue("@teamName", TeamName);
-                                        cmd.Connection = dbh.GetCon();
-                                        cmd.ExecuteNonQuery();
+                            DataRow rowTeamId = teamId.Rows[0];
+                            int checkTeamId = Convert.ToInt32(rowTeamId[0]);
 
-                                        MessageHandler.ShowMessage("data insert has been succeeded");
-                                        dbh.CloseConnectionToDB();
-                                        
-                                    }
+                            if (checkTeamId == Teamid)
+                            {
+                                MessageHandler.ShowMessage("there is already an team with that team id");
+                                Hide();
+                            }
+                            else if (checkTeamId != Teamid)
+                            {
+                                using (SqlCommand cmd = new SqlCommand("INSERT INTO  TblTeams (Team_id, TeamName) VALUES (@Teamid, @teamname)"))
+                                {
+                                    dbh.OpenConnectionToDB();
+                                    cmd.Parameters.AddWithValue("@Teamid", Teamid);
+                                    cmd.Parameters.AddWithValue("@teamName", TeamName);
+                                    cmd.Connection = dbh.GetCon();
+                                    cmd.ExecuteNonQuery();
                                 }
+
                             }
                         }
 
                         
                     }
+                    MessageHandler.ShowMessage("data insert has been succeeded");
+                    dbh.CloseConnectionToDB();
                 }
                 else
                 {
@@ -235,3 +230,12 @@ namespace ProjectFifaV2
         }
     }
 }
+
+            SoundPlayer simpleSound = new SoundPlayer(@"C:\Users\Gebruiker\Documents\GitHub\project_fifa_c#\project_fifa_forms\ProjectFifaV2\Sounds\button_click.wav");
+            simpleSound.Play();
+            SoundPlayer simpleSound = new SoundPlayer(@"C:\Users\Gebruiker\Documents\GitHub\project_fifa_c#\project_fifa_forms\ProjectFifaV2\Sounds\button_back.wav");
+            simpleSound.Play();
+            SoundPlayer simpleSound = new SoundPlayer(@"C:\Users\Gebruiker\Documents\GitHub\project_fifa_c#\project_fifa_forms\ProjectFifaV2\Sounds\button_click.wav");
+            simpleSound.Play();
+            SoundPlayer simpleSound = new SoundPlayer(@"C:\Users\Gebruiker\Documents\GitHub\project_fifa_c#\project_fifa_forms\ProjectFifaV2\Sounds\button_click.wav");
+            simpleSound.Play();

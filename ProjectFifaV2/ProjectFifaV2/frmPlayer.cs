@@ -64,7 +64,7 @@ namespace ProjectFifaV2
         {
             bool hasPassed;
             //This is the deadline for filling in the predictions
-            DateTime deadline = new DateTime(2014, 06, 12);
+            DateTime deadline = new DateTime(2017, 06, 12);
             DateTime curTime = DateTime.Now;
             int result = DateTime.Compare(deadline, curTime);
 

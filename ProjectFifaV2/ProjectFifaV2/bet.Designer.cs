@@ -31,71 +31,50 @@
             System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
             System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("Team", System.Windows.Forms.HorizontalAlignment.Left);
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(bet));
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.betAmount = new System.Windows.Forms.NumericUpDown();
             this.button1 = new System.Windows.Forms.Button();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.listviewBetGames = new System.Windows.Forms.ListView();
             this.Home = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.numberOfGoalsHome = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            this.numberOfGoalsAway = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.game_id = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.betAmount)).BeginInit();
             this.SuspendLayout();
             // 
-            // numericUpDown1
+            // betAmount
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(405, 431);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(120, 22);
-            this.numericUpDown1.TabIndex = 0;
-            this.numericUpDown1.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
-            // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(322, 403);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(66, 21);
-            this.radioButton1.TabIndex = 1;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Home";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.betAmount.Location = new System.Drawing.Point(534, 375);
+            this.betAmount.Name = "betAmount";
+            this.betAmount.Size = new System.Drawing.Size(54, 22);
+            this.betAmount.TabIndex = 0;
+            this.betAmount.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.Color.LightGreen;
-            this.button1.Location = new System.Drawing.Point(563, 403);
+            this.button1.Location = new System.Drawing.Point(534, 403);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(91, 50);
+            this.button1.Size = new System.Drawing.Size(120, 50);
             this.button1.TabIndex = 2;
             this.button1.Text = "BET";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // radioButton2
+            // listviewBetGames
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(322, 432);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(62, 21);
-            this.radioButton2.TabIndex = 3;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Away";
-            this.radioButton2.UseVisualStyleBackColor = true;
-            // 
-            // listView1
-            // 
-            this.listView1.BackColor = System.Drawing.Color.Black;
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.listviewBetGames.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.Home,
             this.columnHeader1,
             this.columnHeader2});
@@ -103,14 +82,14 @@
             listViewGroup1.Name = "listViewGroup2";
             listViewGroup2.Header = "Team";
             listViewGroup2.Name = "listViewGroup1";
-            this.listView1.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
+            this.listviewBetGames.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
             listViewGroup1,
             listViewGroup2});
-            this.listView1.Location = new System.Drawing.Point(12, 12);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(304, 441);
-            this.listView1.TabIndex = 4;
-            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listviewBetGames.Location = new System.Drawing.Point(12, 12);
+            this.listviewBetGames.Name = "listviewBetGames";
+            this.listviewBetGames.Size = new System.Drawing.Size(304, 441);
+            this.listviewBetGames.TabIndex = 4;
+            this.listviewBetGames.UseCompatibleStateImageBehavior = false;
             // 
             // Home
             // 
@@ -148,17 +127,17 @@
             this.label3.Text = "Bet App";
             this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
-            // textBox1
+            // numberOfGoalsHome
             // 
-            this.textBox1.Location = new System.Drawing.Point(444, 365);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(120, 22);
-            this.textBox1.TabIndex = 8;
+            this.numberOfGoalsHome.Location = new System.Drawing.Point(394, 405);
+            this.numberOfGoalsHome.Name = "numberOfGoalsHome";
+            this.numberOfGoalsHome.Size = new System.Drawing.Size(107, 22);
+            this.numberOfGoalsHome.TabIndex = 8;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(328, 368);
+            this.label4.Location = new System.Drawing.Point(391, 380);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(110, 17);
             this.label4.TabIndex = 9;
@@ -167,7 +146,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(427, 411);
+            this.label5.Location = new System.Drawing.Point(531, 355);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(68, 17);
             this.label5.TabIndex = 10;
@@ -195,30 +174,74 @@
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
+            // numberOfGoalsAway
+            // 
+            this.numberOfGoalsAway.Location = new System.Drawing.Point(394, 433);
+            this.numberOfGoalsAway.Name = "numberOfGoalsAway";
+            this.numberOfGoalsAway.Size = new System.Drawing.Size(107, 22);
+            this.numberOfGoalsAway.TabIndex = 13;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(342, 433);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(45, 17);
+            this.label6.TabIndex = 14;
+            this.label6.Text = "Away:";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(342, 405);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(49, 17);
+            this.label7.TabIndex = 15;
+            this.label7.Text = "Home:";
+            // 
+            // game_id
+            // 
+            this.game_id.Location = new System.Drawing.Point(594, 374);
+            this.game_id.Name = "game_id";
+            this.game_id.Size = new System.Drawing.Size(60, 22);
+            this.game_id.TabIndex = 16;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(596, 354);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(61, 17);
+            this.label8.TabIndex = 17;
+            this.label8.Text = "Game id";
+            // 
             // bet
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkGreen;
             this.ClientSize = new System.Drawing.Size(666, 467);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.game_id);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.numberOfGoalsAway);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.numberOfGoalsHome);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.listView1);
-            this.Controls.Add(this.radioButton2);
+            this.Controls.Add(this.listviewBetGames);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.radioButton1);
-            this.Controls.Add(this.numericUpDown1);
+            this.Controls.Add(this.betAmount);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "bet";
             this.Text = "bet";
             this.Load += new System.EventHandler(this.bet_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.betAmount)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -226,22 +249,25 @@
 
         #endregion
 
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.NumericUpDown betAmount;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.RadioButton radioButton2;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListView listviewBetGames;
         private System.Windows.Forms.ColumnHeader Home;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox numberOfGoalsHome;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.TextBox numberOfGoalsAway;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox game_id;
+        private System.Windows.Forms.Label label8;
     }
 }

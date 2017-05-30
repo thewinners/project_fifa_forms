@@ -27,7 +27,6 @@ namespace ProjectFifaV2
             frmRanking = new frmRanking();
             bet = new bet();
             frmPlayer = new frmPlayer(frmPlayer, "");
-            
         }
 
         private void btnRegister_Click(object sender, EventArgs e)
@@ -149,6 +148,7 @@ namespace ProjectFifaV2
 
             using (SqlCommand cmd = new SqlCommand("SELECT COUNT(*) FROM [tblUsers] WHERE Username = @Username AND Password = @Password", dbh.GetCon()))
             {
+
                 cmd.Parameters.AddWithValue("Username", username);
                 cmd.Parameters.AddWithValue("Password", password);
                 exist = (int)cmd.ExecuteScalar() > 0;
@@ -171,8 +171,6 @@ namespace ProjectFifaV2
                 else
                 {
                     bet.Show();
-                    
-                    //frmPlayer.Show();
                 }
             }
             else
