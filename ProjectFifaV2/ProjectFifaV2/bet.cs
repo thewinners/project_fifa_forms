@@ -33,7 +33,7 @@ namespace ProjectFifaV2
             
         
         
-        private void button1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e , string un)
         {
             //SoundPlayer simpleSound = new SoundPlayer(@"C:\Users\Gebruiker\Documents\GitHub\project_fifa\mysite_downloads\ProjectFifaV2\Sounds\Chaching.wav");
             //simpleSound.Play();
@@ -43,14 +43,15 @@ namespace ProjectFifaV2
             dbh.TestConnection();
             dbh.OpenConnectionToDB();
 
-            DataTable table = dbh.FillDT("SELECT Username FROM TblUsers");
-            for (int i = 0; i < table.Rows.Count; i++)
+            int Id;
+            using (SqlCommand cmd = new SqlCommand("SELECT COUNT(*) FROM [tblUsers] WHERE Username = @Username", dbh.GetCon()))
             {
-                DataRow dataRow = table.Rows[i];
-                string userName = dataRow["Username"].ToString();
+                cmd.Parameters.AddWithValue("Username", un);
+                
+                Id = (int)cmd.ExecuteScalar();
             }
-            
-                int Game_id = Convert.ToInt32(game_id.Text);
+
+            int Game_id = Convert.ToInt32(game_id.Text);
                 using (SqlCommand cmd = new SqlCommand("INSERT INTO TblPredictions ( User_id, Game_id, PredictedHomeScore, PredictedAwayScore) VALUES (@user_id, @Game_id, @PredictedHomeScore, @PredictedAwayScore)"))
                 {
                     
