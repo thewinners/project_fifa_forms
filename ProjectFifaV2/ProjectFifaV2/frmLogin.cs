@@ -17,7 +17,7 @@ namespace ProjectFifaV2
         private Form frmAdmin;
         private Form frmPlayer;
         private Form frmRanking;
-        private Form frmBet;
+        private bet frmBet;
 
         public frmLogin()
         {
@@ -31,8 +31,8 @@ namespace ProjectFifaV2
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
-            SoundPlayer simpleSound = new SoundPlayer(@"C:\Users\Gebruiker\Documents\GitHub\project_fifa\mysite_downloads\ProjectFifaV2\Sounds\button_click.wav");
-            simpleSound.Play();
+            //SoundPlayer simpleSound = new SoundPlayer(@"C:\Users\Gebruiker\Documents\GitHub\project_fifa\mysite_downloads\ProjectFifaV2\Sounds\button_click.wav");
+            //simpleSound.Play();
             if (txtUsername.Text == "" || txtPassword.Text == "")
             {
                 MessageBox.Show("Both fields are required");
@@ -55,12 +55,13 @@ namespace ProjectFifaV2
                 }
                 else
                 {
-                    using (SqlCommand cmd = new SqlCommand("INSERT INTO [tblUsers] ([Username], [Password], [IsAdmin]) VALUES (@Username, @Password, @IsAdmin)"))
+                    using (SqlCommand cmd = new SqlCommand("INSERT INTO [tblUsers] ([Username], [Password], [IsAdmin],[Score], [Points]) VALUES (@Username, @Password, @IsAdmin, @score, @points)"))
                     {
                         cmd.Parameters.AddWithValue("Username", txtUsername.Text);
                         cmd.Parameters.AddWithValue("Password", txtPassword.Text);
                         cmd.Parameters.AddWithValue("IsAdmin", 0);
                         cmd.Parameters.AddWithValue("score", 0);
+                        cmd.Parameters.AddWithValue("Points", 50);
                         cmd.Connection = dbh.GetCon();
                         cmd.ExecuteNonQuery();
                     }
@@ -170,6 +171,7 @@ namespace ProjectFifaV2
                 }
                 else
                 {
+                    frmBet.SetUsername(username);
                     frmBet.Show();
                 }
             }

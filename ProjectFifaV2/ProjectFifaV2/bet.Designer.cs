@@ -51,6 +51,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.game_id = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
+            this.btnPayOut = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.betAmount)).BeginInit();
             this.SuspendLayout();
             // 
@@ -211,11 +212,22 @@
             this.label8.TabIndex = 17;
             this.label8.Text = "Game id";
             // 
+            // btnPayOut
+            // 
+            this.btnPayOut.Location = new System.Drawing.Point(456, 12);
+            this.btnPayOut.Name = "btnPayOut";
+            this.btnPayOut.Size = new System.Drawing.Size(82, 48);
+            this.btnPayOut.TabIndex = 18;
+            this.btnPayOut.Text = "Pay out";
+            this.btnPayOut.UseVisualStyleBackColor = true;
+            this.btnPayOut.Click += new System.EventHandler(this.btnPayOut_Click);
+            // 
             // bet
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(666, 467);
+            this.Controls.Add(this.btnPayOut);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.game_id);
             this.Controls.Add(this.label7);
@@ -264,5 +276,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox game_id;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button btnPayOut;
     }
 }
