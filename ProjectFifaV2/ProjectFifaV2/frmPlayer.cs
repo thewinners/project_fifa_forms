@@ -80,10 +80,10 @@ namespace ProjectFifaV2
         }
 
         private void ShowResults()
-        {
+        { 
             dbh.TestConnection();
             dbh.OpenConnectionToDB();
-
+              
             DataTable hometable = dbh.FillDT("SELECT tblTeams.TeamName, tblGames.HomeTeamScore FROM tblGames INNER JOIN tblTeams ON tblGames.HomeTeam = tblTeams.Team_ID");
             DataTable awayTable = dbh.FillDT("SELECT tblTeams.TeamName, tblGames.AwayTeamScore FROM tblGames INNER JOIN tblTeams ON tblGames.AwayTeam = tblTeams.Team_ID");
 
