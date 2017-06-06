@@ -19,6 +19,7 @@ namespace ProjectFifaV2
         private string userName;
         private ComboBox tableSelector;
         private TextBox txtPath;
+        private Form frmGames;
 
         List<TextBox> txtBoxList;
 
@@ -26,6 +27,7 @@ namespace ProjectFifaV2
         {
             this.ControlBox = false;
             frmRanking = frm;
+            frmGames = new frmGames();
             dbh = new DatabaseHandler();
 
 
@@ -172,7 +174,12 @@ namespace ProjectFifaV2
         {
                
                         }
-                    }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            frmGames.Show();
+        }
+    }
                 }
             
         
