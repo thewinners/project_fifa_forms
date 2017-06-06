@@ -26,13 +26,11 @@ namespace ProjectFifaV2
             frmAdmin = new frmAdmin();
             frmRanking = new frmRanking();
             frmBet = new bet();
-            //frmPlayer = new frmPlayer(frmRanking);
+            
         }
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
-            SoundPlayer simpleSound = new SoundPlayer(@"C:\Users\Gebruiker\Documents\GitHub\project_fifa\mysite_downloads\ProjectFifaV2\Sounds\button_click.wav");
-            simpleSound.Play();
             if (txtUsername.Text == "" || txtPassword.Text == "")
             {
                 MessageBox.Show("Both fields are required");
@@ -112,8 +110,6 @@ namespace ProjectFifaV2
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            SoundPlayer simpleSound = new SoundPlayer(@"C:\Users\Gebruiker\Documents\GitHub\project_fifa\mysite_downloads\ProjectFifaV2\Sounds\button_click.wav");
-            simpleSound.Play();
             DialogResult result = MessageBox.Show("Are you sure you want to quit?", "Quit", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
             if (result.Equals(DialogResult.OK))
             {
@@ -127,8 +123,7 @@ namespace ProjectFifaV2
 
         private void btnShowRanking_Click(object sender, EventArgs e)
         {
-            SoundPlayer simpleSound = new SoundPlayer(@"C:\Users\Gebruiker\Documents\GitHub\project_fifa\mysite_downloads\ProjectFifaV2\Sounds\button_click.wav");
-            simpleSound.Play();
+           
             frmRanking.Show(); 
         }
 
@@ -170,6 +165,7 @@ namespace ProjectFifaV2
                 }
                 else
                 {
+                    
                     frmBet.Show();
                 }
             }
@@ -178,6 +174,13 @@ namespace ProjectFifaV2
                 dbh.CloseConnectionToDB();
                 MessageHandler.ShowMessage("Wrong username and/or password.");
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string username = txtUsername.Text;
+            frmPlayer = new frmPlayer(frmRanking, username);
+            frmPlayer.Show();
         }
     }
 }

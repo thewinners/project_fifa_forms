@@ -38,21 +38,25 @@
             // 
             // btnRankingBack
             // 
+            this.btnRankingBack.BackColor = System.Drawing.Color.White;
+            this.btnRankingBack.ForeColor = System.Drawing.Color.Black;
             this.btnRankingBack.Location = new System.Drawing.Point(605, 15);
             this.btnRankingBack.Margin = new System.Windows.Forms.Padding(4);
             this.btnRankingBack.Name = "btnRankingBack";
             this.btnRankingBack.Size = new System.Drawing.Size(112, 36);
             this.btnRankingBack.TabIndex = 1;
             this.btnRankingBack.Text = "Back";
-            this.btnRankingBack.UseVisualStyleBackColor = true;
+            this.btnRankingBack.UseVisualStyleBackColor = false;
             this.btnRankingBack.Click += new System.EventHandler(this.btnRankingBack_Click);
             // 
             // lvRanking
             // 
+            this.lvRanking.BackColor = System.Drawing.Color.Black;
             this.lvRanking.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.clmRank,
             this.clmName,
             this.clmScore});
+            this.lvRanking.ForeColor = System.Drawing.Color.White;
             this.lvRanking.Location = new System.Drawing.Point(13, 15);
             this.lvRanking.Margin = new System.Windows.Forms.Padding(4);
             this.lvRanking.Name = "lvRanking";
@@ -80,6 +84,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.LimeGreen;
             this.ClientSize = new System.Drawing.Size(732, 753);
             this.Controls.Add(this.lvRanking);
             this.Controls.Add(this.btnRankingBack);

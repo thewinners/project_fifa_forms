@@ -6,6 +6,9 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Media;
+using System.Data.SqlClient;
+using System.IO;
 
 namespace ProjectFifaV2
 {
@@ -14,6 +17,8 @@ namespace ProjectFifaV2
         private Form frmRanking;
         private DatabaseHandler dbh;
         private string userName;
+        private ComboBox tableSelector;
+        private TextBox txtPath;
 
         List<TextBox> txtBoxList;
 
@@ -22,6 +27,7 @@ namespace ProjectFifaV2
             this.ControlBox = false;
             frmRanking = frm;
             dbh = new DatabaseHandler();
+
 
             InitializeComponent();
             if (DisableEditButton())
@@ -109,7 +115,7 @@ namespace ProjectFifaV2
             {
                 DataRow dataRowHome = hometable.Rows[i];
                 DataRow dataRowAway = awayTable.Rows[i];
-                
+
                 Label lblHomeTeam = new Label();
                 Label lblAwayTeam = new Label();
                 TextBox txtHomePred = new TextBox();
@@ -122,11 +128,11 @@ namespace ProjectFifaV2
 
                 txtHomePred.Text = "0";
                 txtHomePred.Location = new Point(lblHomeTeam.Width, lblHomeTeam.Top - 3);
-                txtHomePred.Width = 40;
+                txtHomePred.Width = 60;
 
                 txtAwayPred.Text = "0";
                 txtAwayPred.Location = new Point(txtHomePred.Width + lblHomeTeam.Width, txtHomePred.Top);
-                txtAwayPred.Width = 40;
+                txtAwayPred.Width = 60;
 
                 lblAwayTeam.Text = dataRowAway["TeamName"].ToString();
                 lblAwayTeam.Location = new Point(txtHomePred.Width + lblHomeTeam.Width + txtAwayPred.Width, txtHomePred.Top + 3);
@@ -146,7 +152,49 @@ namespace ProjectFifaV2
 
         internal void GetUsername(string un)
         {
+            
             userName = un;
         }
-    }
-}
+
+        private void btnEditPrediction_Click(object sender, EventArgs e)
+        {
+            btnEditPrediction.Enabled = false;
+            ShowScoreCard();
+            //ShowResults();
+        }
+
+        private void lvOverview_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pnlPredCard_Paint(object sender, PaintEventArgs e)
+        {
+                dbh.OpenConnectionToDB();
+                    while (data != null)
+                    {
+                        string[] value = (',');
+
+                        int homeTeam = Convert.ToInt32(value[1]);
+                        int awayTeam = Convert.ToInt32(value[2]);
+                        int scoreHome = Convert.ToInt32(value[3]);
+                        int scoreAway = Convert.ToInt32(value[4]);
+
+                        using (SqlCommand cmd = new SqlCommand("INSERT INTO TblGames ( HomeTeamScore, AwayTeamScore) VALUES (@scoreHome, @scoreAway)"))
+                        {
+                            cmd.Parameters.AddWithValue("@homeTeam", homeTeam);
+                            cmd.Parameters.AddWithValue("@awayTeam", awayTeam);
+                            cmd.Parameters.AddWithValue("@scoreHome", scoreHome);
+                            cmd.Parameters.AddWithValue("@scoreAway", scoreAway);
+                            cmd.Connection = dbh.GetCon();
+                            cmd.ExecuteNonQuery();
+
+                            MessageHandler.ShowMessage("Successfully updated the score!");
+                            dbh.CloseConnectionToDB();
+                        }
+                    }
+                }
+            }
+        }
+    
+
