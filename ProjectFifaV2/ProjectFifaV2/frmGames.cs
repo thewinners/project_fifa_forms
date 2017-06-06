@@ -11,9 +11,12 @@ namespace ProjectFifaV2
 {
     public partial class frmGames : Form
     {
+
         private string userName;
         private DatabaseHandler dbh;
         public frmGames()
+        
+            
 
 
         {
@@ -25,10 +28,13 @@ namespace ProjectFifaV2
         {
 
         }
+        internal void GetUsername(string un)
+        {
+            userName = un;
+        }
 
         private void button1_Click(object sender, EventArgs e)
         {
-
             dbh.TestConnection();
             dbh.OpenConnectionToDB();
 
@@ -49,13 +55,11 @@ namespace ProjectFifaV2
             }
         }
 
-        internal void GetUsername(string un)
+        private void button2_Click(object sender, EventArgs e)
         {
-            userName = un;
-        }
-        private void btnLogOut_Click(object sender, EventArgs e)
-        {
+
             Hide();
+            
         }
     }
 }

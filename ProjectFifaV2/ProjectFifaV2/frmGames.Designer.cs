@@ -35,7 +35,7 @@
             this.clmAwayTeam = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lblResultsOverview = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.btnLogOut = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lvOverview
@@ -88,33 +88,30 @@
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(13, 62);
+            this.button1.Location = new System.Drawing.Point(22, 40);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(151, 51);
+            this.button1.Size = new System.Drawing.Size(136, 70);
             this.button1.TabIndex = 10;
             this.button1.Text = "Load Results";
-            this.button1.UseVisualStyleBackColor = false;
+            this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // btnLogOut
+            // button2
             // 
-            this.btnLogOut.BackColor = System.Drawing.Color.White;
-            this.btnLogOut.Location = new System.Drawing.Point(13, 368);
-            this.btnLogOut.Margin = new System.Windows.Forms.Padding(4);
-            this.btnLogOut.Name = "btnLogOut";
-            this.btnLogOut.Size = new System.Drawing.Size(151, 72);
-            this.btnLogOut.TabIndex = 11;
-            this.btnLogOut.Text = "Log Out";
-            this.btnLogOut.UseVisualStyleBackColor = false;
-            this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
+            this.button2.Location = new System.Drawing.Point(22, 349);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(136, 93);
+            this.button2.TabIndex = 11;
+            this.button2.Text = "Logout";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // frmGames
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(618, 463);
-            this.Controls.Add(this.btnLogOut);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.lblResultsOverview);
             this.Controls.Add(this.lvOverview);
@@ -134,6 +131,6 @@
         private System.Windows.Forms.ColumnHeader clmAwayTeam;
         private System.Windows.Forms.Label lblResultsOverview;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button btnLogOut;
+        private System.Windows.Forms.Button button2;
     }
 }
