@@ -171,8 +171,10 @@ namespace ProjectFifaV2
                 }
                 else
                 {
-                    frmBet.SetUsername(username);
-                    frmBet.Show();
+                    //frmBet.SetUsername(username);
+                    //frmBet.Show();
+                    frmPlayer = new frmPlayer(frmRanking, username);
+                    frmPlayer.Show();
                 }
             }
             else

@@ -30,15 +30,15 @@
         {
             System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
             System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("Team", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup3 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup4 = new System.Windows.Forms.ListViewGroup("Team", System.Windows.Forms.HorizontalAlignment.Left);
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(bet));
-            this.betAmount = new System.Windows.Forms.NumericUpDown();
             this.button1 = new System.Windows.Forms.Button();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.listviewBetGames = new System.Windows.Forms.ListView();
             this.Home = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.numberOfGoalsHome = new System.Windows.Forms.TextBox();
@@ -52,16 +52,11 @@
             this.game_id = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.btnPayOut = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.betAmount)).BeginInit();
+            this.listViewGamesId = new System.Windows.Forms.ListView();
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
-            // 
-            // betAmount
-            // 
-            this.betAmount.Location = new System.Drawing.Point(534, 375);
-            this.betAmount.Name = "betAmount";
-            this.betAmount.Size = new System.Drawing.Size(54, 22);
-            this.betAmount.TabIndex = 0;
-            this.betAmount.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
             // 
             // button1
             // 
@@ -86,26 +81,15 @@
             this.listviewBetGames.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
             listViewGroup1,
             listViewGroup2});
-            this.listviewBetGames.Location = new System.Drawing.Point(12, 12);
+            this.listviewBetGames.Location = new System.Drawing.Point(95, 12);
             this.listviewBetGames.Name = "listviewBetGames";
-            this.listviewBetGames.Size = new System.Drawing.Size(304, 441);
+            this.listviewBetGames.Size = new System.Drawing.Size(241, 441);
             this.listviewBetGames.TabIndex = 4;
             this.listviewBetGames.UseCompatibleStateImageBehavior = false;
             // 
             // Home
             // 
             this.Home.Text = "Home";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.8F);
-            this.label1.Location = new System.Drawing.Point(346, 201);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(291, 31);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Bet with minimal 1point";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -164,7 +148,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(322, 12);
+            this.button3.Location = new System.Drawing.Point(345, 12);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(82, 48);
             this.button3.TabIndex = 12;
@@ -222,11 +206,36 @@
             this.btnPayOut.UseVisualStyleBackColor = true;
             this.btnPayOut.Click += new System.EventHandler(this.btnPayOut_Click);
             // 
+            // listViewGamesId
+            // 
+            this.listViewGamesId.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader3,
+            this.columnHeader4,
+            this.columnHeader5});
+            this.listViewGamesId.FullRowSelect = true;
+            listViewGroup3.Header = "ListViewGroup";
+            listViewGroup3.Name = "listViewGroup2";
+            listViewGroup4.Header = "Team";
+            listViewGroup4.Name = "listViewGroup1";
+            this.listViewGamesId.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
+            listViewGroup3,
+            listViewGroup4});
+            this.listViewGamesId.Location = new System.Drawing.Point(7, 12);
+            this.listViewGamesId.Name = "listViewGamesId";
+            this.listViewGamesId.Size = new System.Drawing.Size(82, 441);
+            this.listViewGamesId.TabIndex = 10;
+            this.listViewGamesId.UseCompatibleStateImageBehavior = false;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Home";
+            // 
             // bet
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(666, 467);
+            this.Controls.Add(this.listViewGamesId);
             this.Controls.Add(this.btnPayOut);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.game_id);
@@ -240,28 +249,22 @@
             this.Controls.Add(this.numberOfGoalsHome);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.listviewBetGames);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.betAmount);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "bet";
             this.Text = "bet";
             this.Load += new System.EventHandler(this.bet_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.betAmount)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.NumericUpDown betAmount;
         private System.Windows.Forms.Button button1;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.ListView listviewBetGames;
         private System.Windows.Forms.ColumnHeader Home;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ColumnHeader columnHeader1;
@@ -277,5 +280,9 @@
         private System.Windows.Forms.TextBox game_id;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btnPayOut;
+        private System.Windows.Forms.ListView listViewGamesId;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.ColumnHeader columnHeader5;
     }
 }
