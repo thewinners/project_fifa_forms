@@ -338,13 +338,9 @@ namespace ProjectFifaV2
 
                 {
 
-                    frmBet.SetUsername(username);
+                    frmPlayer = new frmPlayer(frmRanking, username);
 
-                    frmBet.Show();
-
-                    //frmPlayer = new frmPlayer(frmRanking, username);
-
-                    //frmPlayer.Show();
+                    frmPlayer.Show();
 
                 }
 
