@@ -41,6 +41,7 @@
             this.clmAwayTeam = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lvOverview = new System.Windows.Forms.ListView();
             this.button1 = new System.Windows.Forms.Button();
+            this.btnPayOut = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnEditPrediction
@@ -159,11 +160,22 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // btnPayOut
+            // 
+            this.btnPayOut.BackColor = System.Drawing.Color.White;
+            this.btnPayOut.Location = new System.Drawing.Point(487, 330);
+            this.btnPayOut.Name = "btnPayOut";
+            this.btnPayOut.Size = new System.Drawing.Size(141, 42);
+            this.btnPayOut.TabIndex = 11;
+            this.btnPayOut.Text = "pay out";
+            this.btnPayOut.UseVisualStyleBackColor = false;
+            // 
             // frmPlayer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1344, 898);
+            this.Controls.Add(this.btnPayOut);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.pnlPredCard);
             this.Controls.Add(this.lvOverview);
@@ -196,5 +208,6 @@
         private System.Windows.Forms.ColumnHeader clmAwayTeam;
         private System.Windows.Forms.ListView lvOverview;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnPayOut;
     }
 }
