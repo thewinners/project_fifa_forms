@@ -175,14 +175,14 @@ namespace ProjectFifaV2
             TextBox txtAwayPred = new TextBox();
             Label lblHomeTeam = new Label();
             Label lblAwayTeam = new Label();
-            //int Id;
+            int Id;
             dbh.TestConnection();
             dbh.OpenConnectionToDB();
-            //using (SqlCommand cmd = new SqlCommand("SELECT Id FROM tblUsers WHERE Username = @username", dbh.GetCon()))
-            //{
-            //    cmd.Parameters.AddWithValue("username", un);
-            //    Id = (int)cmd.ExecuteScalar();
-            //}
+            using (SqlCommand cmd = new SqlCommand("SELECT Id FROM tblUsers WHERE Username = @username", dbh.GetCon()))
+            {
+                cmd.Parameters.AddWithValue("username", un);
+                 Id = (int)cmd.ExecuteScalar();
+            }
             DataTable gamesIds = dbh.FillDT("SELECT Game_id FROM tblGames");
 
             for (int i = 0; i < gamesIds.Rows.Count; i++)
@@ -200,7 +200,7 @@ namespace ProjectFifaV2
                 }
                 else if (txtAwayPred == null)
                 {
-                    MessageHandler.ShowMessage("you have to jnsert the amount of goals scored by the away team");
+                    MessageHandler.ShowMessage("you have to insert the amount of goals scored by the away team");
                 }
                 else if (txtHomePred != null && txtAwayPred != null)
                 {
@@ -212,7 +212,7 @@ namespace ProjectFifaV2
                     gameId = Convert.ToInt32(dataRowIds[i]);
                     using (SqlCommand cmd = new SqlCommand("INSERT INTO tblPredictions (Game_id, PredictedHomeScore, PredictedAwayscore) VALUES ( @gameId, @PredHomeScore, @predAwayScore)"))
                     {
-                        //cmd.Parameters.AddWithValue("id", Id);
+                        cmd.Parameters.AddWithValue("id", Id);
                         cmd.Parameters.AddWithValue("gameId", gameId);
                         cmd.Parameters.AddWithValue("PredHomeScore", predictedHomeScore);
                         cmd.Parameters.AddWithValue("PredAwayScore", predictedAwayScore);

@@ -341,6 +341,7 @@ namespace ProjectFifaV2
                     frmPlayer = new frmPlayer(frmRanking, username);
 
                     frmPlayer.Show();
+                    
 
                 }
 
