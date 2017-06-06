@@ -170,31 +170,11 @@ namespace ProjectFifaV2
 
         private void pnlPredCard_Paint(object sender, PaintEventArgs e)
         {
-                dbh.OpenConnectionToDB();
-                    while (data != null)
-                    {
-                        string[] value = (',');
-
-                        int homeTeam = Convert.ToInt32(value[1]);
-                        int awayTeam = Convert.ToInt32(value[2]);
-                        int scoreHome = Convert.ToInt32(value[3]);
-                        int scoreAway = Convert.ToInt32(value[4]);
-
-                        using (SqlCommand cmd = new SqlCommand("INSERT INTO TblGames ( HomeTeamScore, AwayTeamScore) VALUES (@scoreHome, @scoreAway)"))
-                        {
-                            cmd.Parameters.AddWithValue("@homeTeam", homeTeam);
-                            cmd.Parameters.AddWithValue("@awayTeam", awayTeam);
-                            cmd.Parameters.AddWithValue("@scoreHome", scoreHome);
-                            cmd.Parameters.AddWithValue("@scoreAway", scoreAway);
-                            cmd.Connection = dbh.GetCon();
-                            cmd.ExecuteNonQuery();
-
-                            MessageHandler.ShowMessage("Successfully updated the score!");
-                            dbh.CloseConnectionToDB();
+               
                         }
                     }
                 }
-            }
-        }
+            
+        
     
 
