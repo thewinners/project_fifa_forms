@@ -11,13 +11,9 @@ namespace ProjectFifaV2
 {
     public partial class frmGames : Form
     {
-
         private string userName;
         private DatabaseHandler dbh;
         public frmGames()
-        
-            
-
 
         {
             dbh = new DatabaseHandler();
@@ -47,20 +43,22 @@ namespace ProjectFifaV2
             {
                 DataRow dataRowHome = hometable.Rows[i];
                 DataRow dataRowAway = awayTable.Rows[i];
+                if (dataRowHome["HomeTeamScore"] != null && dataRowAway["AwayTeamScore"] != null)
+                {
                 ListViewItem lstItem = new ListViewItem(dataRowHome["TeamName"].ToString());
                 lstItem.SubItems.Add(dataRowHome["HomeTeamScore"].ToString());
                 lstItem.SubItems.Add(dataRowAway["AwayTeamScore"].ToString());
                 lstItem.SubItems.Add(dataRowAway["TeamName"].ToString());
                 lvOverview.Items.Add(lstItem);
+                }
             }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-
-            Hide();
-            
+            Hide(); 
         }
     }
 }
+
 
