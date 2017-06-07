@@ -112,7 +112,7 @@ namespace ProjectFifaV2
 
                 {
 
-                    using (SqlCommand cmd = new SqlCommand("INSERT INTO [tblUsers] ([Username], [Password], [IsAdmin],[Score], [Points]) VALUES (@Username, @Password, @IsAdmin, @score, @points)"))
+                    using (SqlCommand cmd = new SqlCommand("INSERT INTO [tblUsers] ([Username], [Password], [IsAdmin],[Score]) VALUES (@Username, @Password, @IsAdmin, @score)"))
 
                     {
 
@@ -124,7 +124,7 @@ namespace ProjectFifaV2
 
                         cmd.Parameters.AddWithValue("score", 0);
 
-                        cmd.Parameters.AddWithValue("Points", 50);
+                        
 
                         cmd.Connection = dbh.GetCon();
 

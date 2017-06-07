@@ -58,6 +58,18 @@ namespace ProjectFifaV2
             {
                 // Clear predections
                 // Update DB
+                dbh.OpenConnectionToDB();
+                int Id;
+                //using (SqlCommand cmd = new SqlCommand("SELECT Id FROM TblUsers WHERE Username = @username", dbh.GetCon()))
+                //{
+                //    cmd.Parameters.AddWithValue("username", userName);
+                //    Id = (int)cmd.ExecuteScalar();
+                //}
+
+                //using (SqlCommand cmd = new SqlCommand("DELETE * FROM TblPredictions WHERE User_id = @id"))
+                //{
+                //    cmd.Parameters.AddWithValue("id", Id);
+                //}
             }
         }
 
@@ -119,8 +131,6 @@ namespace ProjectFifaV2
                 DataRow dataRowHome = hometable.Rows[i];
                 DataRow dataRowAway = awayTable.Rows[i];
                
-
-                
                 Label lblHomeTeam = new Label();
                 Label lblAwayTeam = new Label();
                 TextBox txtHomePred = new TextBox();
@@ -166,6 +176,7 @@ namespace ProjectFifaV2
             //btnEditPrediction.Enabled = false;
             //ShowScoreCard();
             //ShowResults();
+            GetUsername(userName);
             InsertPredictions(userName);
         }
 
@@ -178,10 +189,10 @@ namespace ProjectFifaV2
             int Id;
             dbh.TestConnection();
             dbh.OpenConnectionToDB();
-            using (SqlCommand cmd = new SqlCommand("SELECT Id FROM tblUsers WHERE Username = @username", dbh.GetCon()))
+            using (SqlCommand cmd = new SqlCommand("SELECT Id FROM [TblUsers] WHERE Username = @Username", dbh.GetCon()))
             {
-                cmd.Parameters.AddWithValue("username", un);
-                 Id = (int)cmd.ExecuteScalar();
+                cmd.Parameters.AddWithValue("Username", this.userName);
+                Id = (int)cmd.ExecuteScalar();
             }
             DataTable gamesIds = dbh.FillDT("SELECT Game_id FROM tblGames");
 
@@ -210,7 +221,8 @@ namespace ProjectFifaV2
                     predictedHomeScore = Convert.ToInt32(txtHomePred.Text);
                     predictedAwayScore = Convert.ToInt32(txtAwayPred.Text);
                     gameId = Convert.ToInt32(dataRowIds[i]);
-                    using (SqlCommand cmd = new SqlCommand("INSERT INTO tblPredictions (Game_id, PredictedHomeScore, PredictedAwayscore) VALUES ( @gameId, @PredHomeScore, @predAwayScore)"))
+                    dbh.OpenConnectionToDB();
+                    using (SqlCommand cmd = new SqlCommand("INSERT INTO tblPredictions (  User_id ,Game_id, PredictedHomeScore, PredictedAwayScore) VALUES ( @id, @gameId, @PredHomeScore, @predAwayScore)"))
                     {
                         cmd.Parameters.AddWithValue("id", Id);
                         cmd.Parameters.AddWithValue("gameId", gameId);
@@ -236,13 +248,13 @@ namespace ProjectFifaV2
         {
             dbh.TestConnection();
             dbh.OpenConnectionToDB();
-            int Id;
+            int Id = 1;
             int score;
-            using (SqlCommand cmd = new SqlCommand("SELECT Id FROM [TblUsers] WHERE Username = @Username", dbh.GetCon()))
-            {
-                cmd.Parameters.AddWithValue("@Username", un);
-                Id = (int)cmd.ExecuteScalar();
-            }
+            //using (SqlCommand cmd = new SqlCommand("SELECT Id FROM [TblUsers] WHERE Username = @Username", dbh.GetCon()))
+            //{
+            //    cmd.Parameters.AddWithValue("@Username", un);
+            //    Id = (int)cmd.ExecuteScalar();
+            //}
 
             int UserIdPredictions;
             using (SqlCommand cmd = new SqlCommand("SELECT User_id FROM TblPredictions", dbh.GetCon()))
@@ -258,15 +270,15 @@ namespace ProjectFifaV2
                 }
             }
 
-            using (SqlCommand cmd = new SqlCommand("SELECT Score FROM [TblUsers] WHERE Username = @Username", dbh.GetCon()))
+            using (SqlCommand cmd = new SqlCommand("SELECT Score FROM [TblUsers] WHERE Id = @id ", dbh.GetCon()))
             {
-                cmd.Parameters.AddWithValue("@Username", un);
+                cmd.Parameters.AddWithValue("@id", Id);
                 score = (int)cmd.ExecuteScalar();
 
             }
             int predictedHomeScore;
             int predictedAwayScore;
-            int gameId;
+            int gameId = 2;
 
             using (SqlCommand cmd = new SqlCommand("SELECT PredictedHomeScore FROM [TblPredictions] WHERE  User_id = @Id", dbh.GetCon()))
             {
@@ -280,11 +292,11 @@ namespace ProjectFifaV2
                 predictedAwayScore = (int)cmd.ExecuteScalar();
             }
 
-            using (SqlCommand cmd = new SqlCommand("SELECT Game_id FROM [tblPredictions] WHERE  User_id = @Id", dbh.GetCon()))
-            {
-                cmd.Parameters.AddWithValue("@Id", Id);
-                gameId = (int)cmd.ExecuteScalar();
-            }
+            //using (SqlCommand cmd = new SqlCommand("SELECT Game_id FROM [tblPredictions] WHERE  User_id = @Id", dbh.GetCon()))
+            //{
+            //    cmd.Parameters.AddWithValue("@Id", Id);
+            //    gameId = (int)cmd.ExecuteScalar();
+            //}
 
             int homeTeamScore;
             int awayTeamScore;
@@ -300,39 +312,37 @@ namespace ProjectFifaV2
                 cmd.Parameters.AddWithValue("@gameId", gameId);
                 awayTeamScore = (int)cmd.ExecuteScalar();
             }
-            int teamWon;
+            bool homeTeamHaveWon = false;
+            bool awayTeamHaveWon = false;
             if (homeTeamScore > awayTeamScore)
             {
-                teamWon = 1;
+                homeTeamHaveWon = true;
             }
             else if (awayTeamScore > homeTeamScore)
             {
-                teamWon = 2;
+                awayTeamHaveWon = true;
             }
-            else
-            {
-                teamWon = 3;
-            }
+            
 
-            string homeTeamWon = null;
-            int homeTeamWin;
-            int awayTeamWon;
+
+            bool homeTeamWon = false;
+            bool awayTeamWon = false;
 
             if (predictedHomeScore > predictedAwayScore)
             {
                 // nu weet ik dus dat hij denkt dat de home team gaat winnen
-                homeTeamWin = 1;
+                homeTeamWon = true;
             }
-            else if (predictedHomeScore > predictedAwayScore)
+            else if (predictedHomeScore < predictedAwayScore)
             {
                 // en hier het uit team
-                awayTeamWon = 2;
+                awayTeamWon = true;
             }
-            bool isCorrect = false;
-            if (homeTeamScore == predictedHomeScore && awayTeamScore == predictedAwayScore)
+            
+            if (homeTeamHaveWon && homeTeamWon )
             {
                 score += 1;
-                isCorrect = true;
+                
                 using (SqlCommand cmd = new SqlCommand("UPDATE TblUsers SET score = @score WHERE Id = @id"))
                 {
                     cmd.Parameters.AddWithValue("score", score);
@@ -340,6 +350,26 @@ namespace ProjectFifaV2
                     cmd.Connection = dbh.GetCon();
                     cmd.ExecuteNonQuery();
                 }
+                MessageHandler.ShowMessage("you won, you have guessed that the home team would win and thats correct");
+                using (SqlCommand cmd = new SqlCommand("DELETE FROM TblPredictions WHERE User_id = @id"))
+                {
+                    cmd.Parameters.AddWithValue("id", Id);
+                    cmd.Connection = dbh.GetCon();
+                    cmd.ExecuteNonQuery();
+                }
+
+            }
+            else if (awayTeamHaveWon && awayTeamWon)
+            {
+                score += 1;
+                using (SqlCommand cmd = new SqlCommand("UPDATE TblUsers SET score = @score WHERE Id = @id"))
+                {
+                    cmd.Parameters.AddWithValue("score", score);
+                    cmd.Parameters.AddWithValue("Id", Id);
+                    cmd.Connection = dbh.GetCon();
+                    cmd.ExecuteNonQuery();
+                }
+                MessageHandler.ShowMessage("you won, you have guessed that the away team would win and thats correct");
 
                 using (SqlCommand cmd = new SqlCommand("DELETE FROM TblPredictions WHERE User_id = @id"))
                 {
@@ -348,6 +378,45 @@ namespace ProjectFifaV2
                     cmd.ExecuteNonQuery();
                 }
 
+            }
+            else if(homeTeamHaveWon && homeTeamWon && homeTeamScore == predictedHomeScore && awayTeamScore == predictedAwayScore)
+            {
+                score += 3;
+                using (SqlCommand cmd = new SqlCommand("UPDATE TblUsers SET score = @score WHERE Id = @id"))
+                {
+                    cmd.Parameters.AddWithValue("score", score);
+                    cmd.Parameters.AddWithValue("Id", Id);
+                    cmd.Connection = dbh.GetCon();
+                    cmd.ExecuteNonQuery();
+                }
+                MessageHandler.ShowMessage("you won, you have guessed that the home team won and the endscore is correct");
+
+                using (SqlCommand cmd = new SqlCommand("DELETE FROM TblPredictions WHERE User_id = @id"))
+                {
+                    cmd.Parameters.AddWithValue("id", Id);
+                    cmd.Connection = dbh.GetCon();
+                    cmd.ExecuteNonQuery();
+                }
+            }
+
+            else if (awayTeamHaveWon && awayTeamWon && homeTeamScore == predictedHomeScore && awayTeamScore == predictedAwayScore)
+            {
+                score += 3;
+                using (SqlCommand cmd = new SqlCommand("UPDATE TblUsers SET score = @score WHERE Id = @id"))
+                {
+                    cmd.Parameters.AddWithValue("score", score);
+                    cmd.Parameters.AddWithValue("Id", Id);
+                    cmd.Connection = dbh.GetCon();
+                    cmd.ExecuteNonQuery();
+                }
+                MessageHandler.ShowMessage("you won, you have guessed that the home team won and the endscore is correct");
+
+                using (SqlCommand cmd = new SqlCommand("DELETE FROM TblPredictions WHERE User_id = @id"))
+                {
+                    cmd.Parameters.AddWithValue("id", Id);
+                    cmd.Connection = dbh.GetCon();
+                    cmd.ExecuteNonQuery();
+                }
             }
             else
             {
@@ -364,6 +433,11 @@ namespace ProjectFifaV2
         private void button1_Click(object sender, EventArgs e)
         {
             frmGames.Show();
+        }
+
+        private void btnPayOut_Click(object sender, EventArgs e)
+        {
+            PayOut(userName);
         }
     }
 }

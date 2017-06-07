@@ -169,6 +169,7 @@
             this.btnPayOut.TabIndex = 11;
             this.btnPayOut.Text = "pay out";
             this.btnPayOut.UseVisualStyleBackColor = false;
+            this.btnPayOut.Click += new System.EventHandler(this.btnPayOut_Click);
             // 
             // frmPlayer
             // 
