@@ -122,7 +122,7 @@ namespace ProjectFifaV2
 
             DataTable hometable = dbh.FillDT("SELECT tblTeams.TeamName FROM tblGames INNER JOIN tblTeams ON tblGames.HomeTeam = tblTeams.Team_ID");
             DataTable awayTable = dbh.FillDT("SELECT tblTeams.TeamName FROM tblGames INNER JOIN tblTeams ON tblGames.AwayTeam = tblTeams.Team_ID");
-            
+            //DataTable Teamname = dbh.FillDT("DELETE tblTeams.TeamName, Team_id ");
             dbh.CloseConnectionToDB();
 
             for (int i = 0; i < hometable.Rows.Count; i++)
