@@ -70,7 +70,7 @@ namespace ProjectFifaV2
         {
             if (!(txtPath.Text == null))
             {
-                dbh.OpenConnectionToDB();
+                
                 StreamReader sr = new StreamReader(txtPath.Text);
 
                 if (tableSelector.Text == "")
@@ -79,6 +79,7 @@ namespace ProjectFifaV2
                 }
                 else if (tableSelector.Text == "matches")
                 {
+                    dbh.OpenConnectionToDB();
                     string data = sr.ReadLine();
 
                     while (data != null)
@@ -94,6 +95,7 @@ namespace ProjectFifaV2
 
                         using (SqlCommand cmd = new SqlCommand("INSERT INTO TblGames ( HomeTeam, AwayTeam, HomeTeamScore, AwayTeamScore) VALUES (@homeTeam, @awayTeam, @scoreHome, @scoreAway)"))
                         {
+                            
                             cmd.Parameters.AddWithValue("@homeTeam", homeTeam);
                             cmd.Parameters.AddWithValue("@awayTeam", awayTeam);
                             cmd.Parameters.AddWithValue("@scoreHome", scoreHome);
@@ -102,7 +104,7 @@ namespace ProjectFifaV2
                             cmd.ExecuteNonQuery();
 
                             MessageHandler.ShowMessage("data insert has been succeeded");
-                            dbh.CloseConnectionToDB();
+                            
                         }
                     }
                 }
@@ -136,7 +138,7 @@ namespace ProjectFifaV2
                             cmd.ExecuteNonQuery();
 
                             MessageHandler.ShowMessage("data insert has been succeeded");
-                            dbh.CloseConnectionToDB();
+                            
                         }
 
                     }
@@ -166,8 +168,12 @@ namespace ProjectFifaV2
                             if (checkTeamId == Teamid)
                             {
                                 MessageHandler.ShowMessage("there is already an team with that team id");
-                                Hide();
+                                break;
+                                Form frmAdmin = new frmAdmin();
+                                frmAdmin.Show();
+                                dbh.CloseConnectionToDB();
                             }
+                           
                             else if (checkTeamId != Teamid)
                             {
                                 using (SqlCommand cmd = new SqlCommand("INSERT INTO  TblTeams (Team_id, TeamName) VALUES (@Teamid, @teamname)"))
@@ -185,12 +191,12 @@ namespace ProjectFifaV2
                         
                     }
                     MessageHandler.ShowMessage("data insert has been succeeded");
-                    dbh.CloseConnectionToDB();
+                    
                 }
                 else
                 {
                     MessageHandler.ShowMessage("No filename selected.");
-                    dbh.CloseConnectionToDB();
+                   
                 }
                     
             }
