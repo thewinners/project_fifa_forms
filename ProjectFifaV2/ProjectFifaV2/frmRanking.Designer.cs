@@ -84,7 +84,6 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.DarkGreen;
             this.ClientSize = new System.Drawing.Size(732, 753);
             this.Controls.Add(this.lvRanking);
             this.Controls.Add(this.btnRankingBack);
@@ -108,3 +107,4 @@
         private System.Windows.Forms.ColumnHeader clmScore;
     }
 }
+            this.BackColor = System.Drawing.Color.LimeGreen;

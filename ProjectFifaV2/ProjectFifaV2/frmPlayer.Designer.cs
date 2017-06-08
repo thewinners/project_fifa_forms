@@ -34,12 +34,14 @@
             this.btnLogOut = new System.Windows.Forms.Button();
             this.lblResultsOverview = new System.Windows.Forms.Label();
             this.btnShowRanking = new System.Windows.Forms.Button();
-            this.lvOverview = new System.Windows.Forms.ListView();
+            this.pnlPredCard = new System.Windows.Forms.Panel();
             this.clmHomeTeam = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.clmHomeTeamScore = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.clmAwayTeamScore = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.clmAwayTeam = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.pnlPredCard = new System.Windows.Forms.Panel();
+            this.lvOverview = new System.Windows.Forms.ListView();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btnPayOut = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnEditPrediction
@@ -100,15 +102,13 @@
             this.btnShowRanking.UseVisualStyleBackColor = false;
             this.btnShowRanking.Click += new System.EventHandler(this.btnShowRanking_Click);
             // 
-            // lvOverview
+            // pnlPredCard
             // 
-            this.lvOverview.BackColor = System.Drawing.Color.Black;
             this.lvOverview.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.clmHomeTeam,
             this.clmHomeTeamScore,
             this.clmAwayTeamScore,
             this.clmAwayTeam});
-            this.lvOverview.ForeColor = System.Drawing.Color.White;
             this.lvOverview.Location = new System.Drawing.Point(635, 44);
             this.lvOverview.Margin = new System.Windows.Forms.Padding(4);
             this.lvOverview.Name = "lvOverview";
@@ -139,15 +139,35 @@
             this.clmAwayTeam.Text = "Away Team";
             this.clmAwayTeam.Width = 100;
             // 
-            // pnlPredCard
+            // lvOverview
             // 
-            this.pnlPredCard.BackColor = System.Drawing.Color.Black;
-            this.pnlPredCard.ForeColor = System.Drawing.Color.White;
             this.pnlPredCard.Location = new System.Drawing.Point(16, 44);
             this.pnlPredCard.Margin = new System.Windows.Forms.Padding(4);
             this.pnlPredCard.Name = "pnlPredCard";
             this.pnlPredCard.Size = new System.Drawing.Size(461, 737);
             this.pnlPredCard.TabIndex = 8;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(485, 271);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(141, 42);
+            this.button1.TabIndex = 10;
+            this.button1.Text = "Load Results";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // btnPayOut
+            // 
+            this.btnPayOut.BackColor = System.Drawing.Color.White;
+            this.btnPayOut.Location = new System.Drawing.Point(487, 330);
+            this.btnPayOut.Name = "btnPayOut";
+            this.btnPayOut.Size = new System.Drawing.Size(141, 42);
+            this.btnPayOut.TabIndex = 11;
+            this.btnPayOut.Text = "pay out";
+            this.btnPayOut.UseVisualStyleBackColor = false;
+            this.btnPayOut.Click += new System.EventHandler(this.btnPayOut_Click);
             // 
             // frmPlayer
             // 
@@ -155,6 +175,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkGreen;
             this.ClientSize = new System.Drawing.Size(1344, 898);
+            this.Controls.Add(this.btnPayOut);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.pnlPredCard);
             this.Controls.Add(this.lvOverview);
             this.Controls.Add(this.btnShowRanking);
@@ -179,11 +201,32 @@
         private System.Windows.Forms.Button btnLogOut;
         private System.Windows.Forms.Label lblResultsOverview;
         private System.Windows.Forms.Button btnShowRanking;
-        private System.Windows.Forms.ListView lvOverview;
+        private System.Windows.Forms.Panel pnlPredCard;
         private System.Windows.Forms.ColumnHeader clmHomeTeam;
         private System.Windows.Forms.ColumnHeader clmHomeTeamScore;
         private System.Windows.Forms.ColumnHeader clmAwayTeamScore;
         private System.Windows.Forms.ColumnHeader clmAwayTeam;
-        private System.Windows.Forms.Panel pnlPredCard;
+        private System.Windows.Forms.ListView lvOverview;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnPayOut;
     }
 }
+            this.pnlPredCard.Location = new System.Drawing.Point(16, 44);
+            this.pnlPredCard.Margin = new System.Windows.Forms.Padding(4);
+            this.pnlPredCard.Name = "pnlPredCard";
+            this.pnlPredCard.Size = new System.Drawing.Size(461, 737);
+            this.pnlPredCard.TabIndex = 8;
+            this.pnlPredCard.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlPredCard_Paint);
+            this.lvOverview.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.clmHomeTeam,
+            this.clmHomeTeamScore,
+            this.clmAwayTeamScore,
+            this.clmAwayTeam});
+            this.lvOverview.Location = new System.Drawing.Point(635, 44);
+            this.lvOverview.Margin = new System.Windows.Forms.Padding(4);
+            this.lvOverview.Name = "lvOverview";
+            this.lvOverview.Size = new System.Drawing.Size(412, 738);
+            this.lvOverview.TabIndex = 7;
+            this.lvOverview.UseCompatibleStateImageBehavior = false;
+            this.lvOverview.View = System.Windows.Forms.View.Details;
+            this.lvOverview.SelectedIndexChanged += new System.EventHandler(this.lvOverview_SelectedIndexChanged);

@@ -81,9 +81,8 @@
             // 
             // btnLogin
             // 
-            this.btnLogin.BackColor = System.Drawing.Color.White;
-            this.btnLogin.Location = new System.Drawing.Point(353, 158);
-            this.btnLogin.Margin = new System.Windows.Forms.Padding(4);
+            this.btnLogin.Location = new System.Drawing.Point(68, 154);
+            this.btnLogin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(119, 32);
             this.btnLogin.TabIndex = 4;
@@ -93,9 +92,8 @@
             // 
             // btnExit
             // 
-            this.btnExit.BackColor = System.Drawing.Color.White;
-            this.btnExit.Location = new System.Drawing.Point(209, 208);
-            this.btnExit.Margin = new System.Windows.Forms.Padding(4);
+            this.btnExit.Location = new System.Drawing.Point(277, 208);
+            this.btnExit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(119, 32);
             this.btnExit.TabIndex = 5;
@@ -105,9 +103,8 @@
             // 
             // btnRegister
             // 
-            this.btnRegister.BackColor = System.Drawing.Color.White;
-            this.btnRegister.Location = new System.Drawing.Point(353, 208);
-            this.btnRegister.Margin = new System.Windows.Forms.Padding(4);
+            this.btnRegister.Location = new System.Drawing.Point(68, 208);
+            this.btnRegister.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(119, 32);
             this.btnRegister.TabIndex = 6;
@@ -117,9 +114,8 @@
             // 
             // btnShowRanking
             // 
-            this.btnShowRanking.BackColor = System.Drawing.Color.White;
-            this.btnShowRanking.Location = new System.Drawing.Point(67, 157);
-            this.btnShowRanking.Margin = new System.Windows.Forms.Padding(4);
+            this.btnShowRanking.Location = new System.Drawing.Point(277, 154);
+            this.btnShowRanking.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnShowRanking.Name = "btnShowRanking";
             this.btnShowRanking.Size = new System.Drawing.Size(119, 32);
             this.btnShowRanking.TabIndex = 7;
@@ -175,7 +171,16 @@
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Button btnRegister;
         private System.Windows.Forms.Button btnShowRanking;
-        private System.Windows.Forms.Button button2;
     }
 }
 
+
+            this.btnLogin.Location = new System.Drawing.Point(68, 153);
+            this.btnLogin.Margin = new System.Windows.Forms.Padding(4);
+            this.btnExit.Location = new System.Drawing.Point(277, 217);
+            this.btnExit.Margin = new System.Windows.Forms.Padding(4);
+            this.btnRegister.Location = new System.Drawing.Point(277, 167);
+            this.btnRegister.Margin = new System.Windows.Forms.Padding(4);
+            this.btnShowRanking.Location = new System.Drawing.Point(69, 193);
+            this.btnShowRanking.Margin = new System.Windows.Forms.Padding(4);
+        private System.Windows.Forms.Button btnShowRanking;
