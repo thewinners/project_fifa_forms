@@ -135,11 +135,13 @@
             // 
             // lvOverview
             // 
+            this.lvOverview.BackColor = System.Drawing.Color.Black;
             this.lvOverview.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.clmHomeTeam,
             this.clmHomeTeamScore,
             this.clmAwayTeamScore,
             this.clmAwayTeam});
+            this.lvOverview.ForeColor = System.Drawing.Color.White;
             this.lvOverview.Location = new System.Drawing.Point(635, 44);
             this.lvOverview.Margin = new System.Windows.Forms.Padding(4);
             this.lvOverview.Name = "lvOverview";
@@ -175,6 +177,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Green;
             this.ClientSize = new System.Drawing.Size(1344, 898);
             this.Controls.Add(this.btnPayOut);
             this.Controls.Add(this.button1);

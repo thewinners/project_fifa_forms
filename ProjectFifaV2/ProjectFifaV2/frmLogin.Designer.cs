@@ -80,52 +80,57 @@
             // 
             // btnLogin
             // 
-            this.btnLogin.Location = new System.Drawing.Point(68, 153);
+            this.btnLogin.BackColor = System.Drawing.Color.White;
+            this.btnLogin.Location = new System.Drawing.Point(67, 167);
             this.btnLogin.Margin = new System.Windows.Forms.Padding(4);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(119, 32);
             this.btnLogin.TabIndex = 4;
             this.btnLogin.Text = "Login";
-            this.btnLogin.UseVisualStyleBackColor = true;
+            this.btnLogin.UseVisualStyleBackColor = false;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // btnExit
             // 
+            this.btnExit.BackColor = System.Drawing.Color.White;
             this.btnExit.Location = new System.Drawing.Point(277, 217);
             this.btnExit.Margin = new System.Windows.Forms.Padding(4);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(119, 32);
             this.btnExit.TabIndex = 5;
             this.btnExit.Text = "Exit";
-            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.UseVisualStyleBackColor = false;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // btnRegister
             // 
+            this.btnRegister.BackColor = System.Drawing.Color.White;
             this.btnRegister.Location = new System.Drawing.Point(277, 167);
             this.btnRegister.Margin = new System.Windows.Forms.Padding(4);
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(119, 32);
             this.btnRegister.TabIndex = 6;
             this.btnRegister.Text = "Register";
-            this.btnRegister.UseVisualStyleBackColor = true;
+            this.btnRegister.UseVisualStyleBackColor = false;
             this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
             // 
             // btnShowRanking
             // 
-            this.btnShowRanking.Location = new System.Drawing.Point(69, 193);
+            this.btnShowRanking.BackColor = System.Drawing.Color.White;
+            this.btnShowRanking.Location = new System.Drawing.Point(67, 217);
             this.btnShowRanking.Margin = new System.Windows.Forms.Padding(4);
             this.btnShowRanking.Name = "btnShowRanking";
             this.btnShowRanking.Size = new System.Drawing.Size(119, 32);
             this.btnShowRanking.TabIndex = 7;
             this.btnShowRanking.Text = "Show Ranking";
-            this.btnShowRanking.UseVisualStyleBackColor = true;
+            this.btnShowRanking.UseVisualStyleBackColor = false;
             this.btnShowRanking.Click += new System.EventHandler(this.btnShowRanking_Click);
             // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Green;
             this.ClientSize = new System.Drawing.Size(485, 273);
             this.Controls.Add(this.btnShowRanking);
             this.Controls.Add(this.btnRegister);

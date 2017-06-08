@@ -42,13 +42,14 @@
             // 
             // btnLoadData
             // 
+            this.btnLoadData.BackColor = System.Drawing.Color.White;
             this.btnLoadData.Location = new System.Drawing.Point(1009, 39);
             this.btnLoadData.Margin = new System.Windows.Forms.Padding(4);
             this.btnLoadData.Name = "btnLoadData";
             this.btnLoadData.Size = new System.Drawing.Size(108, 25);
             this.btnLoadData.TabIndex = 0;
             this.btnLoadData.Text = "Load Data";
-            this.btnLoadData.UseVisualStyleBackColor = true;
+            this.btnLoadData.UseVisualStyleBackColor = false;
             this.btnLoadData.Click += new System.EventHandler(this.btnLoadData_Click);
             // 
             // txtPath
@@ -62,13 +63,14 @@
             // 
             // btnSelectFile
             // 
+            this.btnSelectFile.BackColor = System.Drawing.Color.White;
             this.btnSelectFile.Location = new System.Drawing.Point(73, 41);
             this.btnSelectFile.Margin = new System.Windows.Forms.Padding(4);
             this.btnSelectFile.Name = "btnSelectFile";
             this.btnSelectFile.Size = new System.Drawing.Size(108, 25);
             this.btnSelectFile.TabIndex = 2;
             this.btnSelectFile.Text = "Select File";
-            this.btnSelectFile.UseVisualStyleBackColor = true;
+            this.btnSelectFile.UseVisualStyleBackColor = false;
             this.btnSelectFile.Click += new System.EventHandler(this.btnSelectFile_Click);
             // 
             // txtQuery
@@ -83,13 +85,14 @@
             // 
             // btnExecute
             // 
+            this.btnExecute.BackColor = System.Drawing.Color.White;
             this.btnExecute.Location = new System.Drawing.Point(768, 207);
             this.btnExecute.Margin = new System.Windows.Forms.Padding(4);
             this.btnExecute.Name = "btnExecute";
             this.btnExecute.Size = new System.Drawing.Size(108, 25);
             this.btnExecute.TabIndex = 5;
             this.btnExecute.Text = "Execute";
-            this.btnExecute.UseVisualStyleBackColor = true;
+            this.btnExecute.UseVisualStyleBackColor = false;
             this.btnExecute.Click += new System.EventHandler(this.btnExecute_Click);
             // 
             // dgvAdminData
@@ -103,13 +106,14 @@
             // 
             // btnAdminLogOut
             // 
+            this.btnAdminLogOut.BackColor = System.Drawing.Color.White;
             this.btnAdminLogOut.Location = new System.Drawing.Point(1121, 41);
             this.btnAdminLogOut.Margin = new System.Windows.Forms.Padding(4);
             this.btnAdminLogOut.Name = "btnAdminLogOut";
             this.btnAdminLogOut.Size = new System.Drawing.Size(141, 49);
             this.btnAdminLogOut.TabIndex = 7;
             this.btnAdminLogOut.Text = "Log Out";
-            this.btnAdminLogOut.UseVisualStyleBackColor = true;
+            this.btnAdminLogOut.UseVisualStyleBackColor = false;
             this.btnAdminLogOut.Click += new System.EventHandler(this.btnAdminLogOut_Click);
             // 
             // tableSelector
@@ -128,6 +132,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Green;
             this.ClientSize = new System.Drawing.Size(1279, 630);
             this.Controls.Add(this.tableSelector);
             this.Controls.Add(this.btnAdminLogOut);
