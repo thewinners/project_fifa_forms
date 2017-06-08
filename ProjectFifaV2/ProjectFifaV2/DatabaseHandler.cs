@@ -31,7 +31,11 @@ namespace ProjectFifaV2
             
             try
             {
-                con.Open();
+                if(con.State != ConnectionState.Open)
+                {
+                    con.Open();
+
+                }
             }
             catch (Exception ex)
             {
